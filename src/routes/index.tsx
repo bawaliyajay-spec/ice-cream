@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   Phone,
   MessageCircle,
@@ -513,24 +514,32 @@ function ProductCard({ product }: { product: Product }) {
   const isVadilal = product.brand === "Vadilal";
   const imageSrc = assetUrl(product.image);
   const [imgFailed, setImgFailed] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/50 bg-card shadow-card transition hover:-translate-y-1 hover:shadow-scoop">
       <div className="relative flex h-52 items-center justify-center overflow-hidden bg-gradient-to-br from-cream to-brand-gold/20 p-4">
         {imageSrc && !imgFailed ? (
-          <img
-            src={imageSrc}
-            alt={product.name}
-            loading="lazy"
-            className="h-full w-full object-contain transition group-hover:scale-105"
-            onError={() => setImgFailed(true)}
-          />
+          <button
+            type="button"
+            onClick={() => setLightboxOpen(true)}
+            className="h-full w-full cursor-zoom-in border-0 bg-transparent p-0"
+            aria-label={`View ${product.name} image`}
+          >
+            <img
+              src={imageSrc}
+              alt={product.name}
+              loading="lazy"
+              className="h-full w-full object-contain transition group-hover:scale-105"
+              onError={() => setImgFailed(true)}
+            />
+          </button>
         ) : (
           <IceCreamCone className="h-16 w-16 text-brand-blue/30" />
         )}
 
         <span
-          className={`absolute left-3 top-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white ${
+          className={`pointer-events-none absolute left-3 top-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white ${
             isVadilal ? "bg-brand-blue" : "bg-brand-pink"
           }`}
         >
@@ -560,6 +569,66 @@ function ProductCard({ product }: { product: Product }) {
           </span>
         </div>
       </div>
+
+      {lightboxOpen && imageSrc ? (
+        <ImageLightbox
+          src={imageSrc}
+          alt={product.name}
+          onClose={() => setLightboxOpen(false)}
+        />
+      ) : null}
     </article>
+  );
+}
+
+function ImageLightbox({
+  src,
+  alt,
+  onClose,
+}: {
+  src: string;
+  alt: string;
+  onClose: () => void;
+}) {
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [onClose]);
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-transparent p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label={alt}
+      onClick={onClose}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute right-4 top-4 z-[101] flex h-11 w-11 items-center justify-center rounded-full bg-black/70 text-white shadow-lg transition hover:bg-black/90"
+        aria-label="Close image"
+      >
+        <X className="h-6 w-6" />
+      </button>
+
+      <img
+        src={src}
+        alt={alt}
+        className="max-h-[92vh] max-w-[94vw] object-contain"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>,
+    document.body,
   );
 }
