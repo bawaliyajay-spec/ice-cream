@@ -1,5 +1,101 @@
 [
   {
+    "id": "sheetal-cakes-and-pastries-cake-and-pastry-pack",
+    "name": "Cake & Pastry Pack",
+    "brand": "Sheetal",
+    "category": "Cakes & Pastries",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/cakes-and-pastries-cake-and-pastry-pack.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-1",
+    "name": "Candy 1",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-1.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-2",
+    "name": "Candy 2",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-2.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-3",
+    "name": "Candy 3",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-3.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-4",
+    "name": "Candy 4",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-4.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-5",
+    "name": "Candy 5",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-5.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-6",
+    "name": "Candy 6",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-6.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-candies-dollies-and-bars-candy-7",
+    "name": "Candy 7",
+    "brand": "Sheetal",
+    "category": "Candies, Dollies & Bars",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/candies-dollies-and-bars-candy-7.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
     "id": "sheetal-cones-american-nuts",
     "name": "American Nuts",
     "brand": "Sheetal",
@@ -106,6 +202,30 @@
     "image": "images/sheetal/cups-thender-coconut.png",
     "hide": false,
     "sourceUrl": "https://sheetalfoodworld.com/products/"
+  },
+  {
+    "id": "sheetal-gully-gola-chocolate-chips",
+    "name": "Chocolate Chips",
+    "brand": "Sheetal",
+    "category": "Gully Gola",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/gully-gola-chocolate-chips.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-gully-gola-tutti-frutti",
+    "name": "Tutti_Frutti",
+    "brand": "Sheetal",
+    "category": "Gully Gola",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/gully-gola-tutti-frutti.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
   },
   {
     "id": "sheetal-kulfi-authentik-kulfi",
@@ -228,6 +348,18 @@
     "sourceUrl": "https://sheetalfoodworld.com/products/"
   },
   {
+    "id": "sheetal-novelties-triple-sundae-pack",
+    "name": "Triple Sundae Pack",
+    "brand": "Sheetal",
+    "category": "Novelties",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/novelties-triple-sundae-pack.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
     "id": "sheetal-novelties-tripple-sundae",
     "name": "Tripple Sundae",
     "brand": "Sheetal",
@@ -240,6 +372,18 @@
     "sourceUrl": "https://sheetalfoodworld.com/products/"
   },
   {
+    "id": "sheetal-other-chocolate-chips-copy",
+    "name": "Chocolate_Chips – Copy",
+    "brand": "Sheetal",
+    "category": "Other",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/other-chocolate-chips-copy.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
     "id": "sheetal-sandwich-cookies-ice-cream-sandwich",
     "name": "Cookies Ice Cream Sandwich",
     "brand": "Sheetal",
@@ -248,6 +392,54 @@
     "slogan": "",
     "price": null,
     "image": "images/sheetal/sandwich-cookies-ice-cream-sandwich.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-sugar-free-sugar-free-pack",
+    "name": "Sugar Free Pack",
+    "brand": "Sheetal",
+    "category": "Sugar Free",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/sugar-free-sugar-free-pack.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-take-home-family-tub-pack",
+    "name": "Family Tub Pack",
+    "brand": "Sheetal",
+    "category": "Take Home",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/take-home-family-tub-pack.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-take-home-party-pack",
+    "name": "Party Pack",
+    "brand": "Sheetal",
+    "category": "Take Home",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/take-home-party-pack.png",
+    "hide": false,
+    "sourceUrl": "https://www.sheetalicecream.com/products/"
+  },
+  {
+    "id": "sheetal-take-home-take-home-pack",
+    "name": "Take Home Pack",
+    "brand": "Sheetal",
+    "category": "Take Home",
+    "description": "",
+    "slogan": "",
+    "price": null,
+    "image": "images/sheetal/take-home-take-home-pack.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/products/"
   },

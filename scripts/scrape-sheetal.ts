@@ -38,6 +38,11 @@ interface WpMedia {
   source_url: string;
   alt_text?: string;
   title?: { rendered?: string };
+  media_details?: {
+    width?: number;
+    height?: number;
+    sizes?: Record<string, { source_url?: string; width?: number; height?: number }>;
+  };
 }
 
 interface WpProduct {
@@ -210,8 +215,9 @@ async function scrapeClassicMediaLibrary(existing: Set<string>): Promise<Draft[]
   const drafts: Draft[] = [];
   let page = 1;
 
+  // Do NOT skip Candy N — only skip chrome / tile dumps / asset filenames
   const skipName =
-    /logo|slider|banner|favicon|pre-load|pattern|wave|icon|menu|facebook|instagram|youtube|twitter|linkedin|cross|scroll|purple|yellow|circle|franchise|notice|agm|book|code-of|disclosure|about-image|owner|sysmbol|map-india|contact|career|investor|joyfulness|milk.of.taste|artboard|all.product|product.listing|half.cone|side|sidebar|main$|content|submit|preloader|^cups$|^cones$|^novelties$|^kulfi$|^candies|^take.home|^sugar.free|^gully|^cakes/i;
+    /logo|slider|banner|favicon|pre-load|pattern|wave|icon|menu|facebook|instagram|youtube|twitter|linkedin|linked-in|cross|scroll|purple|yellow|circle|franchise|notice|agm|book|code-of|disclosure|about-image|owner|sysmbol|map-india|contact|career|investor|joyfulness|milk.of.taste|artboard|all.product|product.listing|half.cone|sidebar|preloader|scoops|_image$|-image$|_main$|-main$|side-new|fantacy|cookies-icecreams|novellties|^cups$|^cones$|^novelties$|^kulfi$|^candies(_image)?$|^take.?homes?$|^sugar.?free(-main)?$|^gully|^cakes?(-main)?$|side\.png|-side\.|cone_image|cup-main|kulfi_image|sandwich_image|tubs_image|party_pack/i;
 
   while (page <= 10) {
     const { data, headers } = await fetchJson<WpMedia[]>(
@@ -222,18 +228,22 @@ async function scrapeClassicMediaLibrary(existing: Set<string>): Promise<Draft[]
     for (const m of data) {
       const src = m.source_url ?? "";
       if (!/\.(png|jpe?g|webp)$/i.test(src)) continue;
-      if (skipName.test(src)) continue;
+      if (skipName.test(src) && !/Candy-\d+/i.test(src)) continue;
 
       const title = decodeHtml(m.title?.rendered ?? "").trim();
       const alt = decodeHtml(m.alt_text ?? "").trim();
       let name = alt || title;
       if (!name) name = titleFromFilename(src.split("/").pop() ?? "");
-      if (!name || skipName.test(name)) continue;
-      // Skip vague numbered assets like "1", "23"
+      if (!name) continue;
+
+      const isCandy = /^Candy\s*\d+$/i.test(name) || /Candy-\d+/i.test(src);
+      if (!isCandy && skipName.test(name)) continue;
       if (/^\d+$/.test(name.trim())) continue;
-      if (/^Candy\s*\d+$/i.test(name)) {
-        // Keep candy numbered items under Candies category with clearer name
-        name = `Candy ${name.replace(/\D/g, "")}`;
+
+      if (isCandy) {
+        const num = name.match(/(\d+)/)?.[1] ?? src.match(/Candy-(\d+)/i)?.[1];
+        if (!num) continue;
+        name = `Candy ${num}`;
       }
 
       const key = slugify(name);
@@ -241,10 +251,10 @@ async function scrapeClassicMediaLibrary(existing: Set<string>): Promise<Draft[]
 
       drafts.push({
         name,
-        category: mapSheetalCategory("", name),
+        category: isCandy ? "Candies, Dollies & Bars" : mapSheetalCategory("", name),
         description: "",
         price: null,
-        imageUrl: preferHttps(src),
+        imageUrl: largestMediaUrl(m),
         sourceUrl: CLASSIC,
       });
     }
@@ -281,7 +291,6 @@ async function scrapeFoodworldNamedMedia(existing: Set<string>): Promise<Draft[]
           title,
         );
       if (!looksProduct) continue;
-      // Skip SKU-like / asset dump names
       if (/^\d/.test(title) || /_1-sheetal|sheetal-milk/i.test(title)) continue;
 
       let name = title
@@ -303,7 +312,7 @@ async function scrapeFoodworldNamedMedia(existing: Set<string>): Promise<Draft[]
         category: isNoveltySeries ? "Novelties" : mapSheetalCategory("", name),
         description: "",
         price: null,
-        imageUrl: preferHttps(src),
+        imageUrl: largestMediaUrl(m),
         sourceUrl: FOODWORLD,
       });
     }
@@ -318,6 +327,107 @@ async function scrapeFoodworldNamedMedia(existing: Set<string>): Promise<Draft[]
 
 function preferHttps(url: string): string {
   return url.replace(/^http:\/\//i, "https://");
+}
+
+/** Prefer the largest available WP media size (HD). */
+function largestMediaUrl(m: WpMedia): string {
+  const candidates: Array<{ url: string; area: number }> = [];
+  if (m.source_url) {
+    candidates.push({
+      url: m.source_url,
+      area: (m.media_details?.width ?? 0) * (m.media_details?.height ?? 0),
+    });
+  }
+  for (const size of Object.values(m.media_details?.sizes ?? {})) {
+    if (!size?.source_url) continue;
+    candidates.push({
+      url: size.source_url,
+      area: (size.width ?? 0) * (size.height ?? 0),
+    });
+  }
+  candidates.sort((a, b) => b.area - a.area);
+  return preferHttps(candidates[0]?.url || m.source_url);
+}
+
+/**
+ * Explicitly pull missing official categories:
+ * Candies 1–7, Gully Gola flavours, Take Home / Sugar Free / Cakes packs.
+ */
+async function scrapeMissingSheetalCategories(existing: Set<string>): Promise<Draft[]> {
+  const drafts: Draft[] = [];
+  const seen = new Set(existing);
+
+  const catalog: Array<{ match: RegExp; name: string; category: string; minWidth?: number }> = [
+    { match: /^Candy\s*1$/i, name: "Candy 1", category: "Candies, Dollies & Bars" },
+    { match: /^Candy\s*2$/i, name: "Candy 2", category: "Candies, Dollies & Bars" },
+    { match: /^Candy\s*3$/i, name: "Candy 3", category: "Candies, Dollies & Bars" },
+    { match: /^Candy\s*4$/i, name: "Candy 4", category: "Candies, Dollies & Bars" },
+    { match: /^Candy\s*5$/i, name: "Candy 5", category: "Candies, Dollies & Bars" },
+    { match: /^Candy\s*6$/i, name: "Candy 6", category: "Candies, Dollies & Bars" },
+    { match: /^Candy\s*7$/i, name: "Candy 7", category: "Candies, Dollies & Bars" },
+    { match: /Chocolate_Chips|Chocolate Chips/i, name: "Chocolate Chips", category: "Gully Gola" },
+    { match: /Tutti_Frutti|Tutti Frutti/i, name: "Tutti Frutti", category: "Gully Gola" },
+    { match: /^Take Homes$/i, name: "Take Home Pack", category: "Take Home", minWidth: 400 },
+    { match: /^sugar-free-main$/i, name: "Sugar Free Pack", category: "Sugar Free", minWidth: 400 },
+    { match: /^cake-main$/i, name: "Cake & Pastry Pack", category: "Cakes & Pastries", minWidth: 400 },
+    { match: /Tripple Sunday-main|Triple Sunday/i, name: "Triple Sundae Pack", category: "Novelties", minWidth: 400 },
+    { match: /^party_pack_image$/i, name: "Party Pack", category: "Take Home", minWidth: 400 },
+    { match: /^tubs_image$/i, name: "Family Tub Pack", category: "Take Home", minWidth: 300 },
+  ];
+
+  let page = 1;
+  while (page <= 10) {
+    const { data, headers } = await fetchJson<WpMedia[]>(
+      `${CLASSIC_MEDIA}?per_page=100&page=${page}&media_type=image`,
+    );
+    if (!Array.isArray(data) || data.length === 0) break;
+
+    for (const m of data) {
+      const title = decodeHtml(m.title?.rendered ?? "").trim();
+      const file = (m.source_url ?? "").split("/").pop() ?? "";
+      const width = m.media_details?.width ?? 0;
+
+      for (const entry of catalog) {
+        if (!entry.match.test(title) && !entry.match.test(file)) continue;
+        if (entry.minWidth && width > 0 && width < entry.minWidth) continue;
+        const key = slugify(entry.name);
+        if (seen.has(key) || drafts.some((d) => slugify(d.name) === key)) continue;
+        seen.add(key);
+        drafts.push({
+          name: entry.name,
+          category: entry.category,
+          description: "",
+          price: null,
+          imageUrl: largestMediaUrl(m),
+          sourceUrl: CLASSIC,
+        });
+      }
+
+      const candyMatch = title.match(/^Candy\s*(\d+)$/i) || file.match(/Candy-(\d+)/i);
+      if (candyMatch) {
+        const name = `Candy ${candyMatch[1]}`;
+        const key = slugify(name);
+        if (!seen.has(key) && !drafts.some((d) => slugify(d.name) === key)) {
+          seen.add(key);
+          drafts.push({
+            name,
+            category: "Candies, Dollies & Bars",
+            description: "",
+            price: null,
+            imageUrl: largestMediaUrl(m),
+            sourceUrl: CLASSIC,
+          });
+        }
+      }
+    }
+
+    const total = Number(headers.get("X-WP-Total") ?? 0);
+    if (total && page * 100 >= total) break;
+    page += 1;
+  }
+
+  console.log(`  Sheetal missing-category drafts: ${drafts.length}`);
+  return drafts;
 }
 
 export async function scrapeSheetal(
@@ -346,8 +456,19 @@ export async function scrapeSheetal(
 
   console.log("  Sheetal: foodworld named media…");
   const fwMedia = await scrapeFoodworldNamedMedia(names);
+  for (const d of fwMedia) names.add(slugify(d.name));
 
-  const drafts = [...foodworld, ...apiDrafts, ...classicPage, ...classicMedia, ...fwMedia];
+  console.log("  Sheetal: missing categories (candies, gully gola, take home, …)…");
+  const missingCats = await scrapeMissingSheetalCategories(names);
+
+  const drafts = [
+    ...foodworld,
+    ...apiDrafts,
+    ...classicPage,
+    ...classicMedia,
+    ...fwMedia,
+    ...missingCats,
+  ];
 
   // Drop truncated duplicates (e.g. "Boll Top" when "Boll Top Cone" exists)
   const nameSet = new Set(drafts.map((d) => d.name.toLowerCase()));

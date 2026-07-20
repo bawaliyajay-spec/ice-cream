@@ -250,15 +250,31 @@ export function parseMrp(raw: string): number | null {
 /** Map Sheetal type/name into a stable display category. */
 export function mapSheetalCategory(type: string, name: string): string {
   const t = `${type} ${name}`.toLowerCase();
-  if (t.includes("gully") || t.includes("gola")) return "Gully Gola";
+  if (t.includes("gully") || t.includes("gola") || t.includes("tutti") || t.includes("chocolate chip"))
+    return "Gully Gola";
   if (t.includes("sugar free") || t.includes("sugar-free") || t.includes("no sugar")) return "Sugar Free";
   if (t.includes("cake") || t.includes("pastr")) return "Cakes & Pastries";
-  if (t.includes("take home") || t.includes("tub") || t.includes("family") || t.includes("party pack"))
+  if (
+    t.includes("take home") ||
+    t.includes("take-home") ||
+    t.includes("tub") ||
+    t.includes("family") ||
+    t.includes("party pack")
+  )
     return "Take Home";
   if (t.includes("kulfi")) return "Kulfi";
   if (t.includes("cone")) return "Cones";
   if (t.includes("sandwich")) return "Sandwich";
-  if (t.includes("candy") || t.includes("dolly") || t.includes("bar") || t.includes("chocobar"))
+  if (
+    t.includes("candy") ||
+    t.includes("candie") ||
+    t.includes("dolly") ||
+    t.includes("dollie") ||
+    t.includes("chocobar") ||
+    t.includes("bon bon") ||
+    t.includes("bon-bon") ||
+    t.includes("orange bar")
+  )
     return "Candies, Dollies & Bars";
   if (t.includes("novelt") || t.includes("sundae")) return "Novelties";
   if (t.includes("cup") || t.includes("natural cup") || t.includes("big cup") || t.includes("jumbo"))
