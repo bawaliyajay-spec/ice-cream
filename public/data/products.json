@@ -1254,7 +1254,7 @@
     "category": "Take Home",
     "description": "Jelly, fresh nuts and fruit come together in this delicious surprise of an ice cream. Pull together everyone that you love to enjoy a scoop with you.",
     "slogan": "Bestseller",
-    "price": 60,
+    "price": null,
     "image": "images/sheetal/cones-american-nuts.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1674,7 +1674,7 @@
     "category": "Badabite Ice Cream Candy",
     "description": "Rich dark chocolate covering, crushed almonds and soft smooth chocolate Ice Cream, giving you a crunchy badabite.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/badabite-ice-cream-candy-choco-almond-crunch.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1710,7 +1710,7 @@
     "category": "Badabite Ice Cream Candy",
     "description": "An overload of creamy dark chocolate that will make you crave more… and more… and more...",
     "slogan": "",
-    "price": null,
+    "price": 55,
     "image": "images/vadilal/badabite-ice-cream-candy-dark-truffle.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1734,7 +1734,7 @@
     "category": "Badabite Ice Cream Candy",
     "description": "Enjoy the delicious surprise of red velvet crumbs in each bite! Red Velvet Badabite Candy is here to win hearts and taste buds.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/badabite-ice-cream-candy-red-velvet.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2070,7 +2070,7 @@
     "category": "Dollies",
     "description": "It’s yum..to the core! Juicy mango candy with a heart of creamy ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/dollies-mango-dolly.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2082,7 +2082,7 @@
     "category": "Dollies",
     "description": "The deliciousness of raspberry amplified, Vadilal style! Can’t go wrong with this one.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/dollies-raspberry-dolly.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2106,7 +2106,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "Authentic Belgian chocolate Ice Cream covered with melted chocolate on top. A heart-melting experience!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-belgian-chocolate-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2154,7 +2154,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "A disc(o) in your mouth! A chocolate disc on top, sprinkled with freshly grated nuts and chocolate Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-chocolate-disc-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2286,7 +2286,7 @@
     "category": "Gourmet Cups",
     "description": "If you’re NUTS about NUTS then welcome to our haven. Pistachio nuts and almond fudge married to create one fabulous ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/gourmet-cups-pistachio-almond-fudge-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2298,7 +2298,7 @@
     "category": "Gourmet Cups",
     "description": "Smoooooth – just like you! Chocolate that’s smooth as silk and melts in the mouth.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/gourmet-cups-silk-chocolate-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2334,7 +2334,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "Need we say anything more? The taste of the world’s best mango and the magic of Ice Cream, perfecto!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/vadilal/gourmet-natural-tubs-alphonso-mango-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2346,7 +2346,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "Ice Cream malai maarke! Experience a purely desi, soft and creamy Classic Malai Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 350,
     "image": "images/vadilal/gourmet-natural-tubs-classic-malai-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2370,7 +2370,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "India’s ever-so-loved dessert with a modern twist. The creamy rich Ice Cream with tender pieces of Gulab Jamun, all in one.",
     "slogan": "",
-    "price": null,
+    "price": 260,
     "image": "images/vadilal/gourmet-natural-tubs-gulab-jamun-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2382,7 +2382,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "A little bit of royal, a little bit of fun. Streaks of saffron with finely sprinkled pistachio nuts that will make you crave more.",
     "slogan": "",
-    "price": null,
+    "price": 325,
     "image": "images/vadilal/gourmet-natural-tubs-kesar-pista-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2454,7 +2454,7 @@
     "category": "Gourmet Tubs",
     "description": "Every ice cream lover's dream combo! Chocolate ice cream laced with cookie chunks!",
     "slogan": "",
-    "price": null,
+    "price": 240,
     "image": "images/vadilal/gourmet-tubs-cookies-n-cream-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2490,7 +2490,7 @@
     "category": "Gourmet Tubs",
     "description": "A brownie road within the vanilla snow! Vanilla Ice Cream with moist pieces of brownie. A classic!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/vadilal/gourmet-tubs-vanilla-brownie-fudge-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2514,7 +2514,7 @@
     "category": "Ice Cream Cakes",
     "description": "A Black Forest Cake for all your blues! The iconic cake, filled with rich and creamy Ice Cream, topped with dark, smooth chocolate flakes.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/ice-cream-cakes-black-forest-ice-cream-cake.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2538,7 +2538,7 @@
     "category": "Ice Cream Cakes",
     "description": "It’s a cake, it’s ice cream and it’s topped with chocolate chips? Count us in!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/ice-cream-cakes-chocolate-chips-ice-cream-cake.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2562,7 +2562,7 @@
     "category": "Ice Cream Cakes",
     "description": "An Ice Cream Cake topped with roasted cashews and almonds – your wish comes true!",
     "slogan": "",
-    "price": null,
+    "price": 320,
     "image": "images/vadilal/ice-cream-cakes-golden-fantasy-ice-cream-cake.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2634,7 +2634,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "An Ice Cream with buttery and caramelised crunch is an old-time favourite. So delicious and tempting, you’ll want to skip your meal!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-butterscotch-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3138,7 +3138,7 @@
     "category": "Shrikhand",
     "description": "The perfect combination of almonds, saffron and pistachio - the Shrikhand that will leave you licking your fingers.",
     "slogan": "",
-    "price": null,
+    "price": 130,
     "image": "images/vadilal/shrikhand-badam-pista-kesar-500-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3150,7 +3150,7 @@
     "category": "Shrikhand",
     "description": "The perfect combination of almonds, saffron and pistachio - the Shrikhand that will leave you licking your fingers.",
     "slogan": "",
-    "price": null,
+    "price": 130,
     "image": "images/vadilal/shrikhand-badam-pista-kesar-shrikhand-200-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3162,7 +3162,7 @@
     "category": "Shrikhand",
     "description": "Delectable Elaichi Shrikhand with a special Vadilal signature touch – give me more!",
     "slogan": "",
-    "price": null,
+    "price": 115,
     "image": "images/vadilal/shrikhand-elaichi-shrikhand-200-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3174,7 +3174,7 @@
     "category": "Shrikhand",
     "description": "Delectable Elaichi Shrikhand with a special Vadilal signature touch – give me more!",
     "slogan": "",
-    "price": null,
+    "price": 115,
     "image": "images/vadilal/shrikhand-elaichi-shrikhand-500-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3186,7 +3186,7 @@
     "category": "Shrikhand",
     "description": "Saffron-flavoured Shrikhand for the ones who enjoy a healthy dose of sweetness in just about everything.",
     "slogan": "",
-    "price": null,
+    "price": 130,
     "image": "images/vadilal/shrikhand-kesar-shrikhand-200-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3198,7 +3198,7 @@
     "category": "Shrikhand",
     "description": "Make those boring meals tasty and healthy at the same time with our saffron rich flavoured Shrikhand.",
     "slogan": "",
-    "price": null,
+    "price": 130,
     "image": "images/vadilal/shrikhand-kesar-shrikhand-500-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3210,7 +3210,7 @@
     "category": "Shrikhand",
     "description": "The magic of mango all year round blended into the ultimate sweet! Enjoy mango-flavoured Shrikhand anytime, anywhere.",
     "slogan": "",
-    "price": null,
+    "price": 115,
     "image": "images/vadilal/shrikhand-mango-shrikhand-200-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3222,7 +3222,7 @@
     "category": "Shrikhand",
     "description": "The magic of mango all year round blended into the ultimate sweet! Enjoy mango-flavoured Shrikhand anytime, anywhere.",
     "slogan": "",
-    "price": null,
+    "price": 115,
     "image": "images/vadilal/shrikhand-mango-shrikhand-500-gms.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3258,7 +3258,7 @@
     "category": "Sundae Spin",
     "description": "We took the classic flavours for a spin and came back with a delightful melody that is delicious, convenient and just as iconic!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/sundae-spin-chocolate.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"

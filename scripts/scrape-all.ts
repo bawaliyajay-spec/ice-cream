@@ -6,6 +6,7 @@ import {
 } from "./scrape-utils";
 import { scrapeVadilal } from "./scrape-vadilal";
 import { scrapeSheetal } from "./scrape-sheetal";
+import { enrichPrices } from "./scrape-prices";
 
 async function main() {
   const root = process.cwd();
@@ -21,17 +22,19 @@ async function main() {
   const sheetal = await scrapeSheetal(root, existing);
   console.log(`Sheetal: ${sheetal.length} products`);
 
-  // Merge brands separately so stale Sheetal placeholders (Candy 1, Novelty N, packs)
-  // are dropped when they are no longer returned by the scraper.
+  // Merge brands separately so stale Sheetal placeholders are dropped.
   const vadilalMerged = mergeWithExisting(vadilal, existing);
   const sheetalMerged = mergeWithExisting(sheetal, existing);
-  const merged = [...vadilalMerged.products, ...sheetalMerged.products];
+  let merged = [...vadilalMerged.products, ...sheetalMerged.products];
   const stats = {
     added: vadilalMerged.stats.added + sheetalMerged.stats.added,
     updated: vadilalMerged.stats.updated + sheetalMerged.stats.updated,
     unchanged: vadilalMerged.stats.unchanged + sheetalMerged.stats.unchanged,
     priceUpdated: vadilalMerged.stats.priceUpdated + sheetalMerged.stats.priceUpdated,
   };
+
+  const priced = await enrichPrices(merged);
+  merged = priced.products;
 
   merged.sort((a, b) => {
     if (a.brand !== b.brand) return a.brand.localeCompare(b.brand);
@@ -50,8 +53,12 @@ async function main() {
   for (const [key, count] of [...byBrandCat.entries()].sort()) {
     console.log(`  ${key}: ${count}`);
   }
+  const withPrice = merged.filter((p) => p.price != null).length;
   console.log(
-    `\nMerge: +${stats.added} new, ~${stats.updated} updated, =${stats.unchanged} unchanged, ₹${stats.priceUpdated} price updates`,
+    `\nMerge: +${stats.added} new, ~${stats.updated} updated, =${stats.unchanged} unchanged, ₹${stats.priceUpdated} scrape price updates`,
+  );
+  console.log(
+    `Prices set: ${withPrice}/${merged.length} (enriched +${priced.stats.updated}, missing ${priced.stats.missing})`,
   );
   console.log(`Wrote ${merged.length} products → ${jsonPath}`);
 }

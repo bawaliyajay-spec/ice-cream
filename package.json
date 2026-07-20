@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "scrape": "bun run scripts/scrape-all.ts"
+    "scrape": "bun run scripts/scrape-all.ts",
+    "scrape:prices": "bun run scripts/scrape-prices.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
