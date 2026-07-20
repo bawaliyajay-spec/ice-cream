@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import {
   Phone,
@@ -590,44 +590,226 @@ function ImageLightbox({
   alt: string;
   onClose: () => void;
 }) {
+  const [scale, setScale] = useState(1);
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const stageRef = useRef<HTMLDivElement | null>(null);
+  const pointers = useRef(new Map<number, { x: number; y: number }>());
+  const pinchStart = useRef<{ dist: number; scale: number } | null>(null);
+  const dragStart = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null);
+  const lastTap = useRef(0);
+  const scaleRef = useRef(scale);
+  const offsetRef = useRef(offset);
+  scaleRef.current = scale;
+  offsetRef.current = offset;
+
+  const clampScale = (value: number) => Math.min(4, Math.max(1, value));
+
+  const resetView = () => {
+    setScale(1);
+    setOffset({ x: 0, y: 0 });
+  };
+
+  const zoomBy = (delta: number, around?: { x: number; y: number }) => {
+    setScale((prev) => {
+      const next = clampScale(prev + delta);
+      if (next === 1) {
+        setOffset({ x: 0, y: 0 });
+      } else if (around && typeof window !== "undefined") {
+        const cx = around.x - window.innerWidth / 2;
+        const cy = around.y - window.innerHeight / 2;
+        setOffset((o) => ({
+          x: o.x - (cx * (next - prev)) / next,
+          y: o.y - (cy * (next - prev)) / next,
+        }));
+      }
+      return next;
+    });
+  };
+
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      if (e.key === "+" || e.key === "=") zoomBy(0.25);
+      if (e.key === "-" || e.key === "_") zoomBy(-0.25);
+      if (e.key === "0") resetView();
     };
     window.addEventListener("keydown", onKey);
+
+    const stage = stageRef.current;
+    const onWheelNative = (e: WheelEvent) => {
+      e.preventDefault();
+      zoomBy(e.deltaY < 0 ? 0.2 : -0.2, { x: e.clientX, y: e.clientY });
+    };
+    stage?.addEventListener("wheel", onWheelNative, { passive: false });
 
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
+      stage?.removeEventListener("wheel", onWheelNative);
     };
   }, [onClose]);
 
+  const onPointerDown = (e: React.PointerEvent) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.current.size === 2) {
+      const pts = [...pointers.current.values()];
+      const dist = Math.hypot(pts[0]!.x - pts[1]!.x, pts[0]!.y - pts[1]!.y);
+      pinchStart.current = { dist, scale: scaleRef.current };
+      dragStart.current = null;
+      return;
+    }
+
+    if (scaleRef.current > 1) {
+      dragStart.current = {
+        x: e.clientX,
+        y: e.clientY,
+        ox: offsetRef.current.x,
+        oy: offsetRef.current.y,
+      };
+    }
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!pointers.current.has(e.pointerId)) return;
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+    if (pointers.current.size === 2 && pinchStart.current) {
+      const pts = [...pointers.current.values()];
+      const dist = Math.hypot(pts[0]!.x - pts[1]!.x, pts[0]!.y - pts[1]!.y);
+      const next = clampScale((pinchStart.current.scale * dist) / pinchStart.current.dist);
+      setScale(next);
+      if (next === 1) setOffset({ x: 0, y: 0 });
+      return;
+    }
+
+    if (dragStart.current && scale > 1) {
+      setOffset({
+        x: dragStart.current.ox + (e.clientX - dragStart.current.x),
+        y: dragStart.current.oy + (e.clientY - dragStart.current.y),
+      });
+    }
+  };
+
+  const onPointerUp = (e: React.PointerEvent) => {
+    pointers.current.delete(e.pointerId);
+    if (pointers.current.size < 2) pinchStart.current = null;
+    if (pointers.current.size === 0) dragStart.current = null;
+  };
+
+  const onDoubleActivate = (clientX: number, clientY: number) => {
+    if (scale > 1) {
+      resetView();
+    } else {
+      setScale(2.5);
+      setOffset({
+        x: (window.innerWidth / 2 - clientX) * 0.6,
+        y: (window.innerHeight / 2 - clientY) * 0.6,
+      });
+    }
+  };
+
+  const onImageClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const now = Date.now();
+    if (now - lastTap.current < 280) {
+      onDoubleActivate(e.clientX, e.clientY);
+      lastTap.current = 0;
+    } else {
+      lastTap.current = now;
+    }
+  };
+
+  const onWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    zoomBy(e.deltaY < 0 ? 0.2 : -0.2, { x: e.clientX, y: e.clientY });
+  };
+
   return createPortal(
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-transparent p-4"
+      className="fixed inset-0 z-[100] touch-none overscroll-none bg-black/45"
       role="dialog"
       aria-modal="true"
       aria-label={alt}
-      onClick={onClose}
+      onClick={() => {
+        if (scale > 1) resetView();
+        else onClose();
+      }}
     >
-      <button
-        type="button"
-        onClick={onClose}
-        className="absolute right-4 top-4 z-[101] flex h-11 w-11 items-center justify-center rounded-full bg-black/70 text-white shadow-lg transition hover:bg-black/90"
-        aria-label="Close image"
-      >
-        <X className="h-6 w-6" />
-      </button>
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[102] flex items-start justify-between gap-2 p-3 pt-[max(0.75rem,env(safe-area-inset-top))] sm:p-4">
+        <div className="pointer-events-auto flex items-center gap-2">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              zoomBy(-0.35);
+            }}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-black/75 text-lg font-bold text-white shadow-lg sm:h-12 sm:w-12"
+            aria-label="Zoom out"
+          >
+            −
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              zoomBy(0.35);
+            }}
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-black/75 text-lg font-bold text-white shadow-lg sm:h-12 sm:w-12"
+            aria-label="Zoom in"
+          >
+            +
+          </button>
+        </div>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-full bg-black/75 text-white shadow-lg sm:h-12 sm:w-12"
+          aria-label="Close image"
+        >
+          <X className="h-6 w-6" />
+        </button>
+      </div>
 
-      <img
-        src={src}
-        alt={alt}
-        className="max-h-[92vh] max-w-[94vw] object-contain"
-        onClick={(e) => e.stopPropagation()}
-      />
+      <div
+        ref={stageRef}
+        className="flex h-[100dvh] w-[100vw] items-center justify-center overflow-hidden"
+        onWheel={onWheel}
+      >
+        <img
+          src={src}
+          alt={alt}
+          draggable={false}
+          className="select-none object-contain will-change-transform"
+          style={{
+            width: "auto",
+            height: "auto",
+            maxWidth: "100vw",
+            maxHeight: "100dvh",
+            transform: `translate3d(${offset.x}px, ${offset.y}px, 0) scale(${scale})`,
+            transformOrigin: "center center",
+            cursor: scale > 1 ? "grab" : "zoom-in",
+            transition: pointers.current.size ? "none" : "transform 120ms ease-out",
+          }}
+          onClick={onImageClick}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={onPointerUp}
+          onPointerCancel={onPointerUp}
+        />
+      </div>
+
+      <p className="pointer-events-none absolute inset-x-0 bottom-0 z-[102] px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] text-center text-[11px] text-white/85 sm:text-sm">
+        Pinch or + / − to zoom · double-tap to toggle · drag when zoomed
+      </p>
     </div>,
     document.body,
   );
