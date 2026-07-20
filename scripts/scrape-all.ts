@@ -21,7 +21,18 @@ async function main() {
   const sheetal = await scrapeSheetal(root, existing);
   console.log(`Sheetal: ${sheetal.length} products`);
 
-  const { products: merged, stats } = mergeWithExisting([...vadilal, ...sheetal], existing);
+  // Merge brands separately so stale Sheetal placeholders (Candy 1, Novelty N, packs)
+  // are dropped when they are no longer returned by the scraper.
+  const vadilalMerged = mergeWithExisting(vadilal, existing);
+  const sheetalMerged = mergeWithExisting(sheetal, existing);
+  const merged = [...vadilalMerged.products, ...sheetalMerged.products];
+  const stats = {
+    added: vadilalMerged.stats.added + sheetalMerged.stats.added,
+    updated: vadilalMerged.stats.updated + sheetalMerged.stats.updated,
+    unchanged: vadilalMerged.stats.unchanged + sheetalMerged.stats.unchanged,
+    priceUpdated: vadilalMerged.stats.priceUpdated + sheetalMerged.stats.priceUpdated,
+  };
+
   merged.sort((a, b) => {
     if (a.brand !== b.brand) return a.brand.localeCompare(b.brand);
     if (a.category !== b.category) return a.category.localeCompare(b.category);

@@ -12,16 +12,14 @@ import {
   resolvePaths,
   slugify,
   sleep,
-  titleFromFilename,
   type ExistingProduct,
   type ScrapedProduct,
 } from "./scrape-utils";
 
 const FOODWORLD = "https://sheetalfoodworld.com/products/";
-const CLASSIC = "https://www.sheetalicecream.com/products/";
-const CLASSIC_MEDIA = "https://www.sheetalicecream.com/wp-json/wp/v2/media";
 const FOODWORLD_API = "https://sheetalfoodworld.com/wp-json/wp/v2/sheetal_product";
 const FOODWORLD_MEDIA = "https://sheetalfoodworld.com/wp-json/wp/v2/media";
+const CLASSIC = "https://www.sheetalicecream.com";
 
 interface Draft {
   name: string;
@@ -36,8 +34,6 @@ interface Draft {
 interface WpMedia {
   id: number;
   source_url: string;
-  alt_text?: string;
-  title?: { rendered?: string };
   media_details?: {
     width?: number;
     height?: number;
@@ -54,7 +50,6 @@ interface WpProduct {
     product_short_description?: string;
     product_mrp?: string;
     product_badge?: string;
-    product_pack_size?: string;
   };
   class_list?: string[];
   _embedded?: {
@@ -62,8 +57,256 @@ interface WpProduct {
   };
 }
 
+/** Classic Sheetal category pages with real product cards (name + description + image). */
+const CLASSIC_CATEGORY_PAGES: Array<{ category: string; urls: string[] }> = [
+  {
+    category: "Candies, Dollies & Bars",
+    urls: [`${CLASSIC}/ice-candy/`, `${CLASSIC}/chocobar/`, `${CLASSIC}/dolly/`],
+  },
+  { category: "Cones", urls: [`${CLASSIC}/cones/`] },
+  {
+    category: "Cups",
+    urls: [
+      `${CLASSIC}/cups/`,
+      `${CLASSIC}/big-cup-100ml/`,
+      `${CLASSIC}/big-cup-80ml/`,
+      `${CLASSIC}/small-cup-sheetal-ice-cream/`,
+      `${CLASSIC}/naturals/`,
+      `${CLASSIC}/ripple-special-ice-cream/`,
+    ],
+  },
+  {
+    category: "Kulfi",
+    urls: [`${CLASSIC}/kulfi/`, `${CLASSIC}/premium-kulfi/`],
+  },
+  {
+    category: "Novelties",
+    urls: [`${CLASSIC}/novelties/`, `${CLASSIC}/kids-special-ice-cream/`],
+  },
+  { category: "Cakes & Pastries", urls: [`${CLASSIC}/cakes-pastries/`] },
+  {
+    category: "Take Home",
+    urls: [`${CLASSIC}/take-home/`, `${CLASSIC}/party-pack/`, `${CLASSIC}/tub-ice-cream/`],
+  },
+  { category: "Sugar Free", urls: [`${CLASSIC}/sugar-free/`] },
+  { category: "Gully Gola", urls: [`${CLASSIC}/gully-gola/`] },
+];
+
 function decodeHtml(raw: string): string {
   return cheerio.load(`<textarea>${raw}</textarea>`)("textarea").text();
+}
+
+function preferHttps(url: string): string {
+  return url.replace(/^http:\/\//i, "https://");
+}
+
+function normalizeNameKey(name: string): string {
+  return slugify(
+    name
+      .replace(/\bboltop\b/gi, "boll top")
+      .replace(/\bboll top cone\b/gi, "boll top")
+      .replace(/\bthender coconut\b/gi, "tender coconut")
+      .replace(/\btripple sundae\b/gi, "triple sundae")
+      .replace(/\btripple\b/gi, "triple")
+      .replace(/\btutty fruity\b/gi, "tutti frutti")
+      .replace(/\bvanila\b/gi, "vanilla")
+      .replace(/\bchcolate\b/gi, "chocolate")
+      .replace(/\bcookies\s*['’]?n['’]?\s*cream\b/gi, "cookies cream")
+      .replace(/\bcookies cream\b/gi, "cookies cream")
+      .replace(/\bkasmiri\b/gi, "kashmiri")
+      .replace(/\bkalti\b/gi, "katli")
+      .replace(/\bkatri\b/gi, "katli")
+      .replace(/\bpastr\b/gi, "pastry")
+      .replace(/\bimali\b/gi, "imli")
+      .replace(/\bkalakhatta\b/gi, "kala khatta")
+      .replace(/\bkachikeri\b/gi, "kachi keri")
+      .replace(/\bkachi keri\b/gi, "kachi keri")
+      .replace(/\bpaan masala ice\s*cream\b/gi, "paan masala icecream")
+      .replace(/\([^)]*\)/g, "")
+      .replace(/\b\d+\s*ml\b/gi, ""),
+  );
+}
+
+function isJunkProductName(name: string, imageUrl: string): boolean {
+  const n = name.trim();
+  const u = imageUrl.toLowerCase();
+  if (!n || n.length < 2) return true;
+  if (/^(candy|novelty)\s*\d+$/i.test(n)) return true;
+  if (
+    /^(linked.?in|slider|facebook|instagram|youtube|twitter|menu|cross|scroll(\s*up)?|candies?\s*image|cones?\s*image|cups?\s*image)$/i.test(
+      n,
+    )
+  )
+    return true;
+  if (/\b(slider|sidebar|main|copy|side|logo|banner|preloader|menu|yellow|scroll|cross)\b/i.test(n))
+    return true;
+  if (/\/(slider-|product_page\/|linked-in|facebook|instagram|themes\/sheetal\/images\/(?:menu|cross|scroll))/i.test(u))
+    return true;
+  if (/-(main|side|copy)\.(png|jpe?g|webp)$/i.test(u)) return true;
+  if (/\/product_page\//i.test(u)) return true;
+  if (/\/themes\/sheetal\/images\/(?:menu|cross|scroll|facebook|instagram|youtube|twitter|linked)/i.test(u))
+    return true;
+  if (/\/themes\/sheetal\/images\/[^/]+\.(png|jpe?g|webp)$/i.test(u) && !/\/(?:ice_candy|chocobar|dolly|cones|cups|kulfi|novelties|cakes|party-pack|premium-tubs|sugar-free|kids|special-bars|Big-Cup|Naturals|ripple|tub|gully)\//i.test(u)) {
+    // Root theme images are almost always chrome, not products.
+    if (!/chocolate_chips|tutti_frutti|kalakhatta|kachikeri/i.test(u)) return true;
+  }
+  return false;
+}
+
+function titleFromThemePath(url: string): string {
+  const file = decodeURIComponent((url.split("/").pop() ?? "").replace(/\.[^.]+$/, ""));
+  return file
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+/** Prefer the largest available WP media size (HD). */
+function largestMediaUrl(m: WpMedia): string {
+  const candidates: Array<{ url: string; area: number }> = [];
+  if (m.source_url) {
+    candidates.push({
+      url: m.source_url,
+      area: (m.media_details?.width ?? 0) * (m.media_details?.height ?? 0),
+    });
+  }
+  for (const size of Object.values(m.media_details?.sizes ?? {})) {
+    if (!size?.source_url) continue;
+    candidates.push({
+      url: size.source_url,
+      area: (size.width ?? 0) * (size.height ?? 0),
+    });
+  }
+  candidates.sort((a, b) => b.area - a.area);
+  return preferHttps(candidates[0]?.url || m.source_url);
+}
+
+/**
+ * Classic product pages render cards as:
+ *   <img src=".../themes/sheetal/images/.../Name.png">
+ *   <p class="img__description"><span>Name</span>Description text</p>
+ */
+async function scrapeClassicCategoryPages(): Promise<Draft[]> {
+  const drafts: Draft[] = [];
+  const seen = new Set<string>();
+
+  for (const entry of CLASSIC_CATEGORY_PAGES) {
+    for (const pageUrl of entry.urls) {
+      let html: string;
+      try {
+        html = await fetchText(pageUrl);
+      } catch (err) {
+        console.warn(`  ✗ Failed ${pageUrl}:`, err);
+        continue;
+      }
+
+      const $ = cheerio.load(html);
+
+      $("p.img__description").each((_, el) => {
+        const block = $(el);
+        const name = decodeHtml(block.find("span").first().text()).trim();
+        if (!name) return;
+
+        const description = decodeHtml(block.clone().children("span").remove().end().text()).trim();
+
+        // Prefer nearest preceding product image in the same column/card.
+        const container = block.closest("div.col-12, div.col-md-4, div.col-md-3, div._product_, div.row, div");
+        let imageUrl =
+          container.find("img[src*='/themes/sheetal/images/']").first().attr("src") ??
+          block.parent().find("img[src*='/themes/sheetal/images/']").first().attr("src") ??
+          block.parent().parent().find("img[src*='/themes/sheetal/images/']").first().attr("src") ??
+          "";
+
+        if (!imageUrl) {
+          // Walk previous siblings for an image.
+          let prev = block.parent().prev();
+          for (let i = 0; i < 6 && prev.length; i += 1) {
+            const src = prev.find("img[src*='/wp-content/']").first().attr("src") ?? prev.attr("src");
+            if (src && /\/(themes\/sheetal\/images|uploads)\//i.test(src)) {
+              imageUrl = src;
+              break;
+            }
+            prev = prev.prev();
+          }
+        }
+
+        if (!imageUrl) return;
+        imageUrl = preferHttps(new URL(imageUrl, pageUrl).href);
+
+        if (isJunkProductName(name, imageUrl)) return;
+
+        const category = /sandwich/i.test(name) ? "Sandwich" : entry.category;
+
+        const key = `${slugify(category)}::${slugify(name)}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+
+        drafts.push({
+          name,
+          category,
+          description,
+          price: null,
+          imageUrl,
+          sourceUrl: pageUrl,
+        });
+      });
+
+      // Fallback: product-folder theme images that weren't paired with a description span.
+      $("img[src*='/themes/sheetal/images/']").each((_, el) => {
+        const src = $(el).attr("src");
+        if (!src) return;
+        const imageUrl = preferHttps(new URL(src, pageUrl).href);
+        if (
+          !/\/themes\/sheetal\/images\/(?:ice_candy|chocobar|dolly|cones|cups|kulfi|premium-kulfi|novelties|cakes-pastries|party-pack|premium-tubs|sugar-free|kids|special-bars|Big-Cup-100ml|Big-Cup-80ml|Naturals|ripple-special|tub)\//i.test(
+            imageUrl,
+          ) &&
+          !/\/themes\/sheetal\/images\/(?:Chocolate_Chips|Tutti_Frutti|kalakhatta|kachikeri)\./i.test(
+            imageUrl,
+          )
+        ) {
+          return;
+        }
+        if (/-(side|main)\.(png|jpe?g|webp)$/i.test(imageUrl)) return;
+
+        const name = titleFromThemePath(imageUrl);
+        if (isJunkProductName(name, imageUrl)) return;
+
+        const category = /sandwich/i.test(name) ? "Sandwich" : entry.category;
+
+        const key = `${slugify(category)}::${slugify(name)}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+
+        drafts.push({
+          name,
+          category,
+          description: "",
+          price: null,
+          imageUrl,
+          sourceUrl: pageUrl,
+        });
+      });
+    }
+  }
+
+  // Cookies sandwich lives in the WP uploads library (not a theme card).
+  const sandwichUrl = `${CLASSIC}/wp-content/uploads/2019/10/Cookies-ice-cream-sandwich.png`;
+  const sandwichKey = `${slugify("Sandwich")}::${slugify("Cookies Ice Cream Sandwich")}`;
+  if (![...seen].some((k) => k.endsWith(`::${slugify("Cookies Ice Cream Sandwich")}`))) {
+    drafts.push({
+      name: "Cookies Ice Cream Sandwich",
+      category: "Sandwich",
+      description: "",
+      price: null,
+      imageUrl: sandwichUrl,
+      sourceUrl: `${CLASSIC}/products/`,
+    });
+    seen.add(sandwichKey);
+  }
+
+  console.log(`  Sheetal classic category drafts: ${drafts.length}`);
+  return drafts;
 }
 
 async function scrapeFoodworldCards(): Promise<Draft[]> {
@@ -102,7 +345,6 @@ async function scrapeFoodworldCards(): Promise<Draft[]> {
 }
 
 async function scrapeFoodworldApi(existing: Set<string>): Promise<Draft[]> {
-  // Resolve Ice Cream segment id, then pull those products (with featured images).
   let segmentId: number | null = null;
   try {
     const { data: segments } = await fetchJson<Array<{ id: number; slug: string; name: string }>>(
@@ -158,276 +400,53 @@ async function scrapeFoodworldApi(existing: Set<string>): Promise<Draft[]> {
   return drafts;
 }
 
-async function scrapeClassicProductsPage(existing: Set<string>): Promise<Draft[]> {
-  const html = await fetchText(CLASSIC);
-  const $ = cheerio.load(html);
-  const drafts: Draft[] = [];
+/** Apply Foodworld MRP onto classic products when names match. */
+function applyFoodworldPrices(drafts: Draft[], priced: Draft[]): void {
+  const byKey = new Map<string, number>();
+  for (const p of priced) {
+    if (p.price == null) continue;
+    byKey.set(normalizeNameKey(p.name), p.price);
+    byKey.set(slugify(p.name), p.price);
+  }
 
-  // Category slider tiles (category labels)
-  const categoryByAlt: Record<string, string> = {
-    "gully gola": "Gully Gola",
-    "take home": "Take Home",
-    "sugar free": "Sugar Free",
-    novelties: "Novelties",
-    "cakes & pastries": "Cakes & Pastries",
-    "cakes &#038; pastries": "Cakes & Pastries",
-    kulfi: "Kulfi",
-    "candies, dollies & bars": "Candies, Dollies & Bars",
-    "candies, dollies &#038; bars": "Candies, Dollies & Bars",
-    cones: "Cones",
-    cups: "Cups",
-  };
+  for (const d of drafts) {
+    if (d.price != null) continue;
+    const hit = byKey.get(normalizeNameKey(d.name)) ?? byKey.get(slugify(d.name));
+    if (hit != null) d.price = hit;
+  }
+}
 
-  // Featured / named product images on the page (not category tiles / chrome)
-  $("img").each((_, el) => {
-    const img = $(el);
-    const src = img.attr("src")?.trim();
-    if (!src) return;
-    if (!/uploads\//i.test(src)) return;
-    if (/slider-|logo|banner|favicon|pattern|wave|circle|pre-load|product.listing|product_banner|half-cone-product/i.test(src))
-      return;
+function dedupeDrafts(drafts: Draft[]): Draft[] {
+  const byKey = new Map<string, Draft>();
 
-    const alt = decodeHtml((img.attr("alt") ?? "").trim());
-    const altKey = alt.toLowerCase();
-    if (altKey && categoryByAlt[altKey]) return; // category tile
-
-    let name = alt;
-    if (!name || /circle|pattern|logo|banner/i.test(name)) {
-      name = titleFromFilename(src.split("/").pop() ?? "");
+  for (const d of drafts) {
+    if (isJunkProductName(d.name, d.imageUrl)) continue;
+    // Same flavour can exist in multiple categories (e.g. Chocolate Chips Gully Gola vs Take Home).
+    const key = `${slugify(d.category)}::${normalizeNameKey(d.name)}`;
+    const prev = byKey.get(key);
+    if (!prev) {
+      byKey.set(key, d);
+      continue;
     }
-    if (!name || /^(Circle Pattern|Product Listing Title)$/i.test(name)) return;
-    if (existing.has(slugify(name)) || drafts.some((d) => slugify(d.name) === slugify(name))) return;
 
-    drafts.push({
-      name,
-      category: mapSheetalCategory("", name),
-      description: "",
-      price: null,
-      imageUrl: new URL(src, CLASSIC).href,
-      sourceUrl: CLASSIC,
-    });
+    const score = (x: Draft) =>
+      (x.price != null ? 8 : 0) +
+      (x.description ? 4 : 0) +
+      (/\/themes\/sheetal\/images\//i.test(x.imageUrl) ? 2 : 0) +
+      Math.min(x.name.length, 40) / 40;
+    if (score(d) > score(prev)) byKey.set(key, { ...d, price: d.price ?? prev.price });
+    else if (prev.price == null && d.price != null) prev.price = d.price;
+  }
+
+  const values = [...byKey.values()];
+  return values.filter((d) => {
+    const lower = d.name.toLowerCase();
+    const sameCat = values.filter((o) => o.category === d.category);
+    return !sameCat.some(
+      (other) =>
+        other.name.toLowerCase() !== lower && other.name.toLowerCase().startsWith(lower + " "),
+    );
   });
-
-  return drafts;
-}
-
-async function scrapeClassicMediaLibrary(existing: Set<string>): Promise<Draft[]> {
-  const drafts: Draft[] = [];
-  let page = 1;
-
-  // Do NOT skip Candy N — only skip chrome / tile dumps / asset filenames
-  const skipName =
-    /logo|slider|banner|favicon|pre-load|pattern|wave|icon|menu|facebook|instagram|youtube|twitter|linkedin|linked-in|cross|scroll|purple|yellow|circle|franchise|notice|agm|book|code-of|disclosure|about-image|owner|sysmbol|map-india|contact|career|investor|joyfulness|milk.of.taste|artboard|all.product|product.listing|half.cone|sidebar|preloader|scoops|_image$|-image$|_main$|-main$|side-new|fantacy|cookies-icecreams|novellties|^cups$|^cones$|^novelties$|^kulfi$|^candies(_image)?$|^take.?homes?$|^sugar.?free(-main)?$|^gully|^cakes?(-main)?$|side\.png|-side\.|cone_image|cup-main|kulfi_image|sandwich_image|tubs_image|party_pack/i;
-
-  while (page <= 10) {
-    const { data, headers } = await fetchJson<WpMedia[]>(
-      `${CLASSIC_MEDIA}?per_page=100&page=${page}&media_type=image`,
-    );
-    if (!Array.isArray(data) || data.length === 0) break;
-
-    for (const m of data) {
-      const src = m.source_url ?? "";
-      if (!/\.(png|jpe?g|webp)$/i.test(src)) continue;
-      if (skipName.test(src) && !/Candy-\d+/i.test(src)) continue;
-
-      const title = decodeHtml(m.title?.rendered ?? "").trim();
-      const alt = decodeHtml(m.alt_text ?? "").trim();
-      let name = alt || title;
-      if (!name) name = titleFromFilename(src.split("/").pop() ?? "");
-      if (!name) continue;
-
-      const isCandy = /^Candy\s*\d+$/i.test(name) || /Candy-\d+/i.test(src);
-      if (!isCandy && skipName.test(name)) continue;
-      if (/^\d+$/.test(name.trim())) continue;
-
-      if (isCandy) {
-        const num = name.match(/(\d+)/)?.[1] ?? src.match(/Candy-(\d+)/i)?.[1];
-        if (!num) continue;
-        name = `Candy ${num}`;
-      }
-
-      const key = slugify(name);
-      if (existing.has(key) || drafts.some((d) => slugify(d.name) === key)) continue;
-
-      drafts.push({
-        name,
-        category: isCandy ? "Candies, Dollies & Bars" : mapSheetalCategory("", name),
-        description: "",
-        price: null,
-        imageUrl: largestMediaUrl(m),
-        sourceUrl: CLASSIC,
-      });
-    }
-
-    const total = Number(headers.get("X-WP-Total") ?? 0);
-    if (total && page * 100 >= total) break;
-    page += 1;
-  }
-
-  return drafts;
-}
-
-async function scrapeFoodworldNamedMedia(existing: Set<string>): Promise<Draft[]> {
-  const drafts: Draft[] = [];
-  let page = 1;
-  const skip =
-    /logo|banner|whatsapp|chatgpt|screenshot|certificate|award|blog|print|djbs|cotton.candy.thamb|financial|adani|bse|nse|mou|opportunity|new.project|img-0|chilfuncer|hero|ice-creamcol|^ice.?cream$|^cups$|^cones$|^novelties$/i;
-
-  while (page <= 20) {
-    const { data, headers } = await fetchJson<WpMedia[]>(
-      `${FOODWORLD_MEDIA}?per_page=100&page=${page}&media_type=image`,
-    );
-    if (!Array.isArray(data) || data.length === 0) break;
-
-    for (const m of data) {
-      const src = m.source_url ?? "";
-      const title = decodeHtml(m.title?.rendered ?? "").trim();
-      if (!title || skip.test(title) || skip.test(src)) continue;
-
-      const isNoveltySeries = /sheetal\s*novet/i.test(title);
-      const looksProduct =
-        isNoveltySeries ||
-        /cone|kulfi|cup|sundae|mango|jamun|custard|coconut|bastani|nuts|sandwich|candy|dolly|bar|tub|ice.?cream|alphonso|authentik|tripple|triple/i.test(
-          title,
-        );
-      if (!looksProduct) continue;
-      if (/^\d/.test(title) || /_1-sheetal|sheetal-milk/i.test(title)) continue;
-
-      let name = title
-        .replace(/\s*Cone\d*$/i, "")
-        .replace(/\s+\d+$/g, "")
-        .trim();
-      if (isNoveltySeries) {
-        const num = title.match(/(\d+)/)?.[1];
-        if (!num) continue;
-        name = `Novelty ${num}`;
-      }
-      if (!name || name.length < 3) continue;
-
-      const key = slugify(name);
-      if (existing.has(key) || drafts.some((d) => slugify(d.name) === key)) continue;
-
-      drafts.push({
-        name,
-        category: isNoveltySeries ? "Novelties" : mapSheetalCategory("", name),
-        description: "",
-        price: null,
-        imageUrl: largestMediaUrl(m),
-        sourceUrl: FOODWORLD,
-      });
-    }
-
-    const total = Number(headers.get("X-WP-Total") ?? 0);
-    if (total && page * 100 >= total) break;
-    page += 1;
-  }
-
-  return drafts;
-}
-
-function preferHttps(url: string): string {
-  return url.replace(/^http:\/\//i, "https://");
-}
-
-/** Prefer the largest available WP media size (HD). */
-function largestMediaUrl(m: WpMedia): string {
-  const candidates: Array<{ url: string; area: number }> = [];
-  if (m.source_url) {
-    candidates.push({
-      url: m.source_url,
-      area: (m.media_details?.width ?? 0) * (m.media_details?.height ?? 0),
-    });
-  }
-  for (const size of Object.values(m.media_details?.sizes ?? {})) {
-    if (!size?.source_url) continue;
-    candidates.push({
-      url: size.source_url,
-      area: (size.width ?? 0) * (size.height ?? 0),
-    });
-  }
-  candidates.sort((a, b) => b.area - a.area);
-  return preferHttps(candidates[0]?.url || m.source_url);
-}
-
-/**
- * Explicitly pull missing official categories:
- * Candies 1–7, Gully Gola flavours, Take Home / Sugar Free / Cakes packs.
- */
-async function scrapeMissingSheetalCategories(existing: Set<string>): Promise<Draft[]> {
-  const drafts: Draft[] = [];
-  const seen = new Set(existing);
-
-  const catalog: Array<{ match: RegExp; name: string; category: string; minWidth?: number }> = [
-    { match: /^Candy\s*1$/i, name: "Candy 1", category: "Candies, Dollies & Bars" },
-    { match: /^Candy\s*2$/i, name: "Candy 2", category: "Candies, Dollies & Bars" },
-    { match: /^Candy\s*3$/i, name: "Candy 3", category: "Candies, Dollies & Bars" },
-    { match: /^Candy\s*4$/i, name: "Candy 4", category: "Candies, Dollies & Bars" },
-    { match: /^Candy\s*5$/i, name: "Candy 5", category: "Candies, Dollies & Bars" },
-    { match: /^Candy\s*6$/i, name: "Candy 6", category: "Candies, Dollies & Bars" },
-    { match: /^Candy\s*7$/i, name: "Candy 7", category: "Candies, Dollies & Bars" },
-    { match: /Chocolate_Chips|Chocolate Chips/i, name: "Chocolate Chips", category: "Gully Gola" },
-    { match: /Tutti_Frutti|Tutti Frutti/i, name: "Tutti Frutti", category: "Gully Gola" },
-    { match: /^Take Homes$/i, name: "Take Home Pack", category: "Take Home", minWidth: 400 },
-    { match: /^sugar-free-main$/i, name: "Sugar Free Pack", category: "Sugar Free", minWidth: 400 },
-    { match: /^cake-main$/i, name: "Cake & Pastry Pack", category: "Cakes & Pastries", minWidth: 400 },
-    { match: /Tripple Sunday-main|Triple Sunday/i, name: "Triple Sundae Pack", category: "Novelties", minWidth: 400 },
-    { match: /^party_pack_image$/i, name: "Party Pack", category: "Take Home", minWidth: 400 },
-    { match: /^tubs_image$/i, name: "Family Tub Pack", category: "Take Home", minWidth: 300 },
-  ];
-
-  let page = 1;
-  while (page <= 10) {
-    const { data, headers } = await fetchJson<WpMedia[]>(
-      `${CLASSIC_MEDIA}?per_page=100&page=${page}&media_type=image`,
-    );
-    if (!Array.isArray(data) || data.length === 0) break;
-
-    for (const m of data) {
-      const title = decodeHtml(m.title?.rendered ?? "").trim();
-      const file = (m.source_url ?? "").split("/").pop() ?? "";
-      const width = m.media_details?.width ?? 0;
-
-      for (const entry of catalog) {
-        if (!entry.match.test(title) && !entry.match.test(file)) continue;
-        if (entry.minWidth && width > 0 && width < entry.minWidth) continue;
-        const key = slugify(entry.name);
-        if (seen.has(key) || drafts.some((d) => slugify(d.name) === key)) continue;
-        seen.add(key);
-        drafts.push({
-          name: entry.name,
-          category: entry.category,
-          description: "",
-          price: null,
-          imageUrl: largestMediaUrl(m),
-          sourceUrl: CLASSIC,
-        });
-      }
-
-      const candyMatch = title.match(/^Candy\s*(\d+)$/i) || file.match(/Candy-(\d+)/i);
-      if (candyMatch) {
-        const name = `Candy ${candyMatch[1]}`;
-        const key = slugify(name);
-        if (!seen.has(key) && !drafts.some((d) => slugify(d.name) === key)) {
-          seen.add(key);
-          drafts.push({
-            name,
-            category: "Candies, Dollies & Bars",
-            description: "",
-            price: null,
-            imageUrl: largestMediaUrl(m),
-            sourceUrl: CLASSIC,
-          });
-        }
-      }
-    }
-
-    const total = Number(headers.get("X-WP-Total") ?? 0);
-    if (total && page * 100 >= total) break;
-    page += 1;
-  }
-
-  console.log(`  Sheetal missing-category drafts: ${drafts.length}`);
-  return drafts;
 }
 
 export async function scrapeSheetal(
@@ -438,48 +457,24 @@ export async function scrapeSheetal(
 ): Promise<ScrapedProduct[]> {
   const { imagesDir, publicDir } = resolvePaths(root);
 
-  console.log("  Sheetal: foodworld product cards…");
+  console.log("  Sheetal: classic category product pages…");
+  const classic = await scrapeClassicCategoryPages();
+
+  console.log("  Sheetal: foodworld product cards (MRP)…");
   const foodworld = await scrapeFoodworldCards();
-  const names = new Set(foodworld.map((d) => slugify(d.name)));
+  const fwNames = new Set(foodworld.map((d) => slugify(d.name)));
 
   console.log("  Sheetal: foodworld API…");
-  const apiDrafts = await scrapeFoodworldApi(names);
-  for (const d of apiDrafts) names.add(slugify(d.name));
+  const apiDrafts = await scrapeFoodworldApi(fwNames);
 
-  console.log("  Sheetal: classic products page…");
-  const classicPage = await scrapeClassicProductsPage(names);
-  for (const d of classicPage) names.add(slugify(d.name));
+  const pricedSources = [...foodworld, ...apiDrafts];
+  applyFoodworldPrices(classic, pricedSources);
 
-  console.log("  Sheetal: classic media library…");
-  const classicMedia = await scrapeClassicMediaLibrary(names);
-  for (const d of classicMedia) names.add(slugify(d.name));
+  // Include foodworld-only ice creams not already on classic pages.
+  const classicKeys = new Set(classic.map((d) => normalizeNameKey(d.name)));
+  const extras = pricedSources.filter((d) => !classicKeys.has(normalizeNameKey(d.name)));
 
-  console.log("  Sheetal: foodworld named media…");
-  const fwMedia = await scrapeFoodworldNamedMedia(names);
-  for (const d of fwMedia) names.add(slugify(d.name));
-
-  console.log("  Sheetal: missing categories (candies, gully gola, take home, …)…");
-  const missingCats = await scrapeMissingSheetalCategories(names);
-
-  const drafts = [
-    ...foodworld,
-    ...apiDrafts,
-    ...classicPage,
-    ...classicMedia,
-    ...fwMedia,
-    ...missingCats,
-  ];
-
-  // Drop truncated duplicates (e.g. "Boll Top" when "Boll Top Cone" exists)
-  const nameSet = new Set(drafts.map((d) => d.name.toLowerCase()));
-  const filtered = drafts.filter((d) => {
-    const lower = d.name.toLowerCase();
-    for (const other of nameSet) {
-      if (other !== lower && other.startsWith(lower + " ")) return false;
-    }
-    return true;
-  });
-
+  const filtered = dedupeDrafts([...classic, ...extras]);
   console.log(`  Sheetal drafts before download: ${filtered.length}`);
 
   const out: ScrapedProduct[] = [];
@@ -520,10 +515,8 @@ export async function scrapeSheetal(
         sourceUrl: draft.sourceUrl,
       });
       console.log(
-        `  ${downloaded ? "↓" : "↷"} Sheetal [${category}]: ${draft.name}${prev ? " (existing)" : ""}${
-          prev && draft.price !== null && prev.price !== draft.price
-            ? ` · price ${prev.price ?? "—"} → ${draft.price}`
-            : ""
+        `  ${downloaded ? "↓" : "↷"} Sheetal [${category}]: ${draft.name}${
+          draft.price != null ? ` · ₹${draft.price}` : ""
         }`,
       );
       if (downloaded) await sleep(40);
