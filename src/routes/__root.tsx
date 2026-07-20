@@ -4,15 +4,10 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-
-import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
+  const base = import.meta.env.BASE_URL;
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -29,6 +24,9 @@ function NotFoundComponent() {
             Go home
           </Link>
         </div>
+        <a href={base} className="sr-only">
+          Home
+        </a>
       </div>
     </div>
   );
@@ -37,9 +35,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
+  const base = import.meta.env.BASE_URL;
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -61,7 +57,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             Try again
           </button>
           <a
-            href="/"
+            href={base}
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
             Go home
@@ -73,59 +69,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Vadilal & Sheetal Ice Cream Catalog | Two Legendary Brands, One Sweet Destination" },
-      { name: "description", content: "Browse the full menu of Vadilal and Sheetal ice creams — cups, cones, kulfi, family packs and more, all under one roof." },
-      { name: "author", content: "Ice Cream Shop" },
-      { property: "og:title", content: "Vadilal & Sheetal Ice Cream Catalog | Two Legendary Brands, One Sweet Destination" },
-      { property: "og:description", content: "Browse the full menu of Vadilal and Sheetal ice creams — cups, cones, kulfi, family packs and more, all under one roof." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Vadilal & Sheetal Ice Cream Catalog | Two Legendary Brands, One Sweet Destination" },
-      { name: "twitter:description", content: "Browse the full menu of Vadilal and Sheetal ice creams — cups, cones, kulfi, family packs and more, all under one roof." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e49a7ab4-cd8f-4743-8063-59426c7562c7/id-preview-76d59d7b--b2ea0cfb-4ebe-4177-8361-32ead9cf418d.lovable.app-1784522166233.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/e49a7ab4-cd8f-4743-8063-59426c7562c7/id-preview-76d59d7b--b2ea0cfb-4ebe-4177-8361-32ead9cf418d.lovable.app-1784522166233.png" },
-    ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap",
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Phone,
   MessageCircle,
@@ -22,54 +22,90 @@ export const Route = createFileRoute("/")({
 });
 
 type Brand = "Vadilal" | "Sheetal";
-type Category = "All" | "Cups" | "Cones" | "Kulfi" | "Family Pack" | "Sticks" | "Sandwich" | "Party Pack";
 
 interface Product {
+  id: string;
   name: string;
   slogan: string;
   description: string;
-  price: number;
+  price: number | null;
   brand: Brand;
-  category: Exclude<Category, "All">;
-  bestseller?: boolean;
-  emoji: string;
+  category: string;
+  image: string;
+  hide: boolean;
 }
 
-const PRODUCTS: Product[] = [
-  { name: "Butterscotch Tub", slogan: "Crunch in every scoop", description: "Rich butterscotch loaded with caramelized nut brittle", price: 150, brand: "Vadilal", category: "Family Pack", bestseller: true, emoji: "🍨" },
-  { name: "Rajwadi Kesar Pista", slogan: "Royal taste, real saffron", description: "Traditional kesar-pista with real saffron and pistachio", price: 180, brand: "Vadilal", category: "Family Pack", emoji: "🥇" },
-  { name: "Chocochips Cone", slogan: "Chocolate in every bite", description: "Creamy vanilla loaded with chocolate chips in a crisp cone", price: 40, brand: "Vadilal", category: "Cones", emoji: "🍦" },
-  { name: "Party Pack 1L", slogan: "Perfect for celebrations", description: "Family-size tub in your choice of flavor for gatherings", price: 220, brand: "Vadilal", category: "Party Pack", emoji: "🎉" },
-  { name: "Cassata Slice", slogan: "Classic layered joy", description: "Iconic three-layer cassata with nuts and tutti frutti", price: 90, brand: "Vadilal", category: "Cups", emoji: "🍰" },
-  { name: "Choco Bar Stick", slogan: "Choco lover's snack", description: "Vanilla stick coated in a thick crackling chocolate shell", price: 30, brand: "Vadilal", category: "Sticks", bestseller: true, emoji: "🍫" },
-  { name: "Ice Cream Sandwich", slogan: "Two biscuits, one dream", description: "Vanilla ice cream pressed between chocolate wafer biscuits", price: 45, brand: "Vadilal", category: "Sandwich", emoji: "🥪" },
-  { name: "Cup Vanilla Classic", slogan: "Timeless favourite", description: "Smooth creamy vanilla in a convenient 100ml cup", price: 25, brand: "Vadilal", category: "Cups", emoji: "🍨" },
+const SHOP_NAME = "Chamunda Pan & Vadilal Ice-Creams, Sheetal Ice-Creams";
+const SHOP_SHORT = "Chamunda Pan";
+const SHOP_SUBTITLE = "Vadilal & Sheetal Ice-Creams";
+const PHONE_DISPLAY = "+91 87350 45999";
+const PHONE_TEL = "tel:+918735045999";
+const WHATSAPP =
+  "https://wa.me/918735045999?text=Hi!%20I%27d%20like%20to%20order%20ice%20cream.";
+const MAPS_URL = "https://maps.app.goo.gl/qmUNEsBvWP2xnALA8?g_st=aw";
+const ADDRESS =
+  "Chamunda Pan Centre, Main road, opp. Dr. Satapra's clinic, Vasuki plot, Thangadh, Gujarat 363530";
+const BASE = import.meta.env.BASE_URL;
 
-  { name: "Malai Kulfi Stick", slogan: "Pure milk, pure joy", description: "Traditional stick kulfi from slow-cooked 100% pure milk", price: 30, brand: "Sheetal", category: "Kulfi", bestseller: true, emoji: "🍡" },
-  { name: "Anjeer Delight", slogan: "A royal fig affair", description: "Creamy fig-flavored ice cream with real fig chunks", price: 160, brand: "Sheetal", category: "Family Pack", emoji: "🍯" },
-  { name: "Mango Duet Bar", slogan: "Summer's favourite bite", description: "Layered mango and vanilla stick bar, refreshing and light", price: 35, brand: "Sheetal", category: "Sticks", emoji: "🥭" },
-  { name: "Family Tub 1L", slogan: "37+ years of pure love", description: "Classic triple-flavor vanilla, strawberry and chocolate tub", price: 210, brand: "Sheetal", category: "Family Pack", bestseller: true, emoji: "🍨" },
-  { name: "Kaju Draksh Cup", slogan: "Nuts about you", description: "Rich cashew and raisin ice cream in a single serve cup", price: 45, brand: "Sheetal", category: "Cups", emoji: "🥜" },
-  { name: "Chocolate Cone", slogan: "Deep dark bliss", description: "Belgian-style chocolate scoop in a fresh waffle cone", price: 40, brand: "Sheetal", category: "Cones", emoji: "🍦" },
-  { name: "Kesar Pista Kulfi", slogan: "Traditional & true", description: "Slow-cooked kulfi with saffron and pistachio slivers", price: 40, brand: "Sheetal", category: "Kulfi", emoji: "🥭" },
-  { name: "Celebration Pack 1.5L", slogan: "Share the sweetness", description: "Large party pack in mixed premium flavors", price: 320, brand: "Sheetal", category: "Party Pack", emoji: "🎂" },
-];
-
-const CATEGORIES: Category[] = ["All", "Cups", "Cones", "Kulfi", "Family Pack", "Sticks", "Sandwich", "Party Pack"];
-
-const WHATSAPP = "https://wa.me/919999999999?text=Hi!%20I%27d%20like%20to%20order%20ice%20cream.";
+function assetUrl(path: string): string {
+  if (!path) return "";
+  if (/^https?:\/\//i.test(path)) return path;
+  return `${BASE}${path.replace(/^\//, "")}`;
+}
 
 function Index() {
   const [brand, setBrand] = useState<Brand>("Vadilal");
-  const [category, setCategory] = useState<Category>("All");
+  const [category, setCategory] = useState<string>("All");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetch(`${BASE}data/products.json`)
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`Failed to load products (${res.status})`);
+        return res.json() as Promise<Product[]>;
+      })
+      .then((data) => {
+        if (cancelled) return;
+        setProducts(Array.isArray(data) ? data : []);
+        setLoadError(null);
+      })
+      .catch((err: unknown) => {
+        if (cancelled) return;
+        setLoadError(err instanceof Error ? err.message : "Failed to load products");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const visible = useMemo(() => products.filter((p) => !p.hide), [products]);
+
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    for (const p of visible) {
+      if (p.brand === brand && p.category) set.add(p.category);
+    }
+    return ["All", ...Array.from(set).sort((a, b) => a.localeCompare(b))];
+  }, [visible, brand]);
+
+  useEffect(() => {
+    if (!categories.includes(category)) setCategory("All");
+  }, [categories, category]);
 
   const filtered = useMemo(
     () =>
-      PRODUCTS.filter(
+      visible.filter(
         (p) => p.brand === brand && (category === "All" || p.category === category),
       ),
-    [brand, category],
+    [visible, brand, category],
   );
 
   return (
@@ -78,11 +114,16 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-border/60 bg-vanilla/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <a href="#top" className="flex items-center gap-2">
-            <span className="grid h-10 w-10 place-items-center rounded-full gradient-melt shadow-scoop">
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-melt shadow-scoop">
               <IceCreamCone className="h-5 w-5 text-white" />
             </span>
-            <span className="font-display text-lg font-bold text-brand-blue sm:text-xl">
-              Scoops <span className="text-brand-red">&</span> Sticks
+            <span className="leading-tight">
+              <span className="block font-display text-lg font-bold text-brand-blue sm:text-xl">
+                {SHOP_SHORT}
+              </span>
+              <span className="block text-[10px] font-semibold uppercase tracking-wide text-brand-red/80 sm:text-xs">
+                {SHOP_SUBTITLE}
+              </span>
             </span>
           </a>
 
@@ -186,7 +227,6 @@ function Index() {
           </div>
         </div>
 
-        {/* Drip divider */}
         <svg className="block h-16 w-full text-background sm:h-24" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden>
           <path fill="currentColor" d="M0,40 C240,120 480,0 720,50 C960,100 1200,20 1440,60 L1440,100 L0,100 Z" />
         </svg>
@@ -224,17 +264,19 @@ function Index() {
           </h2>
           <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-brand-gold" />
           <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Switch between brands and filter by category. Prices in ₹, subject to availability.
+            Switch between brands and filter by category. Prices in ₹ when listed — otherwise ask us on WhatsApp.
           </p>
         </div>
 
-        {/* Brand toggle */}
         <div className="mt-8 flex justify-center">
           <div className="inline-flex rounded-full border border-border bg-vanilla p-1 shadow-sm">
             {(["Vadilal", "Sheetal"] as Brand[]).map((b) => (
               <button
                 key={b}
-                onClick={() => setBrand(b)}
+                onClick={() => {
+                  setBrand(b);
+                  setCategory("All");
+                }}
                 className={`rounded-full px-6 py-2 text-sm font-bold transition ${
                   brand === b
                     ? b === "Vadilal"
@@ -249,15 +291,14 @@ function Index() {
           </div>
         </div>
 
-        {/* Category chips */}
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
-          {CATEGORIES.map((c) => {
+        <div className="mt-6 flex max-h-40 flex-wrap justify-center gap-2 overflow-y-auto px-1 sm:max-h-none">
+          {categories.map((c) => {
             const active = category === c;
             return (
               <button
                 key={c}
                 onClick={() => setCategory(c)}
-                className={`rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-wide transition sm:text-sm ${
+                className={`rounded-full border px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide transition sm:px-4 sm:text-sm ${
                   active
                     ? "border-brand-red bg-brand-red text-white shadow"
                     : "border-border bg-vanilla text-brand-blue/80 hover:border-brand-red/50 hover:text-brand-red"
@@ -270,7 +311,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Brand section: Vadilal anchor */}
       <section id={brand === "Vadilal" ? "vadilal" : "sheetal"} className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
@@ -288,27 +328,35 @@ function Index() {
             </h3>
           </div>
           <p className="text-sm text-muted-foreground">
-            Showing {filtered.length} product{filtered.length === 1 ? "" : "s"}
+            {loading
+              ? "Loading…"
+              : `Showing ${filtered.length} product${filtered.length === 1 ? "" : "s"}`}
           </p>
         </div>
 
-        {filtered.length === 0 ? (
+        {loadError ? (
+          <div className="rounded-2xl border border-dashed border-border bg-vanilla p-12 text-center text-muted-foreground">
+            {loadError}
+          </div>
+        ) : loading ? (
+          <div className="rounded-2xl border border-dashed border-border bg-vanilla p-12 text-center text-muted-foreground">
+            Loading catalog…
+          </div>
+        ) : filtered.length === 0 ? (
           <div className="rounded-2xl border border-dashed border-border bg-vanilla p-12 text-center text-muted-foreground">
             No products in this category. Try a different filter.
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filtered.map((p) => (
-              <ProductCard key={p.name} product={p} />
+              <ProductCard key={p.id} product={p} />
             ))}
           </div>
         )}
 
-        {/* Also hidden anchor for the other brand so nav jumps work */}
         <div id={brand === "Vadilal" ? "sheetal" : "vadilal"} className="scroll-mt-24" />
       </section>
 
-      {/* Why us */}
       <section id="why" className="bg-vanilla py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center">
@@ -334,21 +382,21 @@ function Index() {
         </div>
       </section>
 
-      {/* Footer / Contact */}
       <footer id="contact" className="bg-brand-blue text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
           <div className="grid gap-10 md:grid-cols-3">
             <div>
               <div className="flex items-center gap-2">
-                <span className="grid h-10 w-10 place-items-center rounded-full gradient-melt">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full gradient-melt">
                   <IceCreamCone className="h-5 w-5 text-white" />
                 </span>
-                <span className="font-display text-xl font-bold">
-                  Scoops <span className="text-brand-gold">&</span> Sticks
+                <span className="leading-tight">
+                  <span className="block font-display text-xl font-bold">{SHOP_SHORT}</span>
+                  <span className="block text-xs font-semibold text-brand-gold">{SHOP_SUBTITLE}</span>
                 </span>
               </div>
               <p className="mt-4 max-w-xs text-sm text-white/70">
-                Your neighbourhood destination for Vadilal & Sheetal ice creams — cups, cones, kulfi, sticks and family packs.
+                {SHOP_NAME} — your neighbourhood destination for cups, cones, kulfi, sticks and family packs.
               </p>
               <div className="mt-5 flex gap-3">
                 <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 hover:bg-brand-pink"><Instagram className="h-4 w-4" /></a>
@@ -369,23 +417,51 @@ function Index() {
             <div>
               <h5 className="font-display text-lg font-bold text-brand-gold">Visit & Order</h5>
               <ul className="mt-4 space-y-3 text-sm text-white/80">
-                <li className="flex gap-3"><MapPin className="h-4 w-4 shrink-0 text-brand-pink" /> Shop No. 4, Market Road, Your City</li>
-                <li className="flex gap-3"><Phone className="h-4 w-4 shrink-0 text-brand-pink" /> +91 99999 99999</li>
-                <li className="flex gap-3"><Clock className="h-4 w-4 shrink-0 text-brand-pink" /> 10:00 AM – 11:00 PM · All days</li>
+                <li className="flex gap-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-pink" />
+                  <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-white"
+                  >
+                    {ADDRESS}
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <Phone className="h-4 w-4 shrink-0 text-brand-pink" />
+                  <a href={PHONE_TEL} className="hover:text-white">
+                    {PHONE_DISPLAY}
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <Clock className="h-4 w-4 shrink-0 text-brand-pink" />
+                  7:00 AM – 12:00 AM · All days
+                </li>
               </ul>
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand-gold px-5 py-2.5 text-sm font-bold text-brand-blue shadow-scoop transition hover:scale-[1.03]"
-              >
-                <MessageCircle className="h-4 w-4" /> Order on WhatsApp
-              </a>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-brand-gold px-5 py-2.5 text-sm font-bold text-brand-blue shadow-scoop transition hover:scale-[1.03]"
+                >
+                  <MessageCircle className="h-4 w-4" /> Order on WhatsApp
+                </a>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/40 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-white/10"
+                >
+                  <MapPin className="h-4 w-4" /> Open in Maps
+                </a>
+              </div>
             </div>
           </div>
 
           <div className="mt-12 border-t border-white/10 pt-6 text-center text-xs text-white/60">
-            © {new Date().getFullYear()} Scoops & Sticks. Vadilal & Sheetal are trademarks of their respective owners.
+            © {new Date().getFullYear()} {SHOP_NAME}. Vadilal & Sheetal are trademarks of their respective owners.
           </div>
         </div>
       </footer>
@@ -435,10 +511,23 @@ function BrandCard({
 
 function ProductCard({ product }: { product: Product }) {
   const isVadilal = product.brand === "Vadilal";
+  const imageSrc = assetUrl(product.image);
+  const [imgFailed, setImgFailed] = useState(false);
+
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-border/50 bg-card shadow-card transition hover:-translate-y-1 hover:shadow-scoop">
-      <div className="relative flex h-44 items-center justify-center overflow-hidden bg-gradient-to-br from-cream to-brand-gold/20">
-        <span className="text-7xl transition group-hover:scale-110">{product.emoji}</span>
+      <div className="relative flex h-52 items-center justify-center overflow-hidden bg-gradient-to-br from-cream to-brand-gold/20 p-4">
+        {imageSrc && !imgFailed ? (
+          <img
+            src={imageSrc}
+            alt={product.name}
+            loading="lazy"
+            className="h-full w-full object-contain transition group-hover:scale-105"
+            onError={() => setImgFailed(true)}
+          />
+        ) : (
+          <IceCreamCone className="h-16 w-16 text-brand-blue/30" />
+        )}
 
         <span
           className={`absolute left-3 top-3 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white ${
@@ -447,24 +536,24 @@ function ProductCard({ product }: { product: Product }) {
         >
           {product.brand}
         </span>
-
-        {product.bestseller && (
-          <span className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-brand-gold px-2.5 py-0.5 text-[10px] font-bold uppercase text-brand-blue">
-            <Sparkles className="h-3 w-3" /> Best
-          </span>
-        )}
       </div>
 
       <div className="flex flex-1 flex-col p-5">
         <h4 className="font-display text-lg font-bold text-brand-blue">{product.name}</h4>
-        <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-red/80">
-          {product.slogan}
-        </p>
-        <p className="mt-2 flex-1 text-sm text-muted-foreground">{product.description}</p>
+        {product.slogan ? (
+          <p className="mt-0.5 text-xs font-semibold uppercase tracking-wide text-brand-red/80">
+            {product.slogan}
+          </p>
+        ) : null}
+        {product.description ? (
+          <p className="mt-2 flex-1 text-sm text-muted-foreground">{product.description}</p>
+        ) : (
+          <div className="flex-1" />
+        )}
 
-        <div className="mt-4 flex items-center justify-between">
+        <div className="mt-4 flex items-center justify-between gap-2">
           <span className="inline-flex items-center rounded-full bg-brand-gold px-3 py-1 font-display text-sm font-bold text-brand-blue">
-            ₹{product.price}
+            {product.price != null ? `₹${product.price}` : "Ask for price"}
           </span>
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {product.category}
