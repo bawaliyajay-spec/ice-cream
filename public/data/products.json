@@ -6,7 +6,7 @@
     "category": "Cakes & Pastries",
     "description": "The original taste of a black forest cake now put for you in an ice cream cake! Try it today!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/sheetal/cakes-and-pastries-black-forest.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cakes-pastries/"
@@ -18,7 +18,7 @@
     "category": "Cakes & Pastries",
     "description": "Enjoy a cake in the form of an ice cream! Delicious chocolate heart beat ice cream cakes, just for you.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/sheetal/cakes-and-pastries-chocolate-icecream-cake.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cakes-pastries/"
@@ -30,7 +30,7 @@
     "category": "Cakes & Pastries",
     "description": "Enjoy a pastry made with cake and ice cream and loaded with nuts!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/sheetal/cakes-and-pastries-golden-fantasy-pastry.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cakes-pastries/"
@@ -42,7 +42,7 @@
     "category": "Cakes & Pastries",
     "description": "Strawberry flavoured Ice Cream cake for your delight.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/sheetal/cakes-and-pastries-heart-beat.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cakes-pastries/"
@@ -54,7 +54,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Crisp toasted almonds tossed with decadent chocolate covering a vanilla core.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-almond-chocobar.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -66,7 +66,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Classic Chocolate covered Vanilla bars in a large 60 ml size.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-best-chocobar.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -78,7 +78,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "A richer, creamier and bigger Mango Dolly, because ice creams are always better when bigger.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-best-mango-dolly.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/dolly/"
@@ -90,7 +90,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Enjoy the bliss of a mocktail in an ice candy with Sheetal’s special blue lagoon candy.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-blue-lagoon.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -102,7 +102,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "A sweet and spicy surprise is the ideal ice candy for all times! Enjoy the flavours of mango with our secret masala to make it perfectly chatpata.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-chat-patta-aam.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -114,7 +114,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Tangy indian tamarind mixed with some fantastic secret spices and condiments for a delicious lickable ice candy.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-chatpati-imli.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -126,7 +126,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Perfect classic chocobar in a 50 ml size.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-classic-chocobar.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -138,7 +138,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Delicious Vanilla centre with a chocolate covering.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-cream-chocobar.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -150,7 +150,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Chocolate covered with chocolate ice-cream and coated in a tempered Choco cover. It’s so loaded with chocolate, you will love it!",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-frostick.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -162,7 +162,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "The favourite Indian special spices ground together for this tasty frozen delight.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-jeera-masala.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -174,7 +174,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Classic chocobar in a 40 ml size.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-junior-chocobar.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -186,7 +186,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Sweet and Sour flavours of raw mango that tingle your senses: A perfect reminder of the onset of summer.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-kachi-keri.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -198,7 +198,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "The perfect classic taste of Kala Khatta in a frozen candy form for your sweet and sour cravings.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-kala-khatta.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -210,7 +210,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "The taste of fresh Indian lemons and condiments prepared together in a candy form.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-lemon-chew.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -222,7 +222,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Authentic taste of golden Mangoes encasing a soft vanilla centre.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-mango-dolly.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/dolly/"
@@ -234,7 +234,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Classic Mega bite but in a small size of 40 ml.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-mini-mega-bite.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/chocobar/"
@@ -246,7 +246,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "The original Orange candy bursting with citrus flavours.",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-orange-bar.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ice-candy/"
@@ -258,7 +258,7 @@
     "category": "Candies, Dollies & Bars",
     "description": "Fresh and icy taste of raspberries coating the creamy vanilla centre that you crave for!",
     "slogan": "",
-    "price": null,
+    "price": 25,
     "image": "images/sheetal/candies-dollies-and-bars-raspberry-dolly.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/dolly/"
@@ -270,7 +270,7 @@
     "category": "Cones",
     "description": "Strawberry and Pistachio combined in a single cone! Enjoy.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-2-in-1.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -306,7 +306,7 @@
     "category": "Cones",
     "description": "The classic flavour of Butterscotch with the pureness of Sheetal milk.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-butterscotch-110ml.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -318,7 +318,7 @@
     "category": "Cones",
     "description": "Enjoy a classic cup of cappuccino in the form of an ice cream cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-capuccino.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -330,7 +330,7 @@
     "category": "Cones",
     "description": "Experience pure chocolate with a twist of vanilla in a cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-choco-vanilla.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -342,7 +342,7 @@
     "category": "Cones",
     "description": "True dark chocolate ice cream in a shell of dark chocolate served on a dark chocolate waffle.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-dark-choco-fantacy.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -354,7 +354,7 @@
     "category": "Cones",
     "description": "Rich and decadent chocolate nut disc on a bed of soft chocolate ice cream served in a cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-disc.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -366,7 +366,7 @@
     "category": "Cones",
     "description": "Strawberry and Chocolate cone for your delight.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-dream-magic.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -378,7 +378,7 @@
     "category": "Cones",
     "description": "Indulge in the pure flavours of Saffron flavour in a delicious cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-festival.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -390,7 +390,7 @@
     "category": "Cones",
     "description": "Pure vanilla bean ice cream made with pure milk served on a waffle cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-french-vanilla.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -402,7 +402,7 @@
     "category": "Cones",
     "description": "Enjoy the flavours of mix fruit in a 110ml cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-frutozz.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -414,7 +414,7 @@
     "category": "Cones",
     "description": "A chocolate delight Cone but in a 50 ml size. Perfect for small cravings.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-junior-chocolate.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -426,7 +426,7 @@
     "category": "Cones",
     "description": "The king of dry fruits mixed with raisins and served in a cone with soft ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-kaju-draksh.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -438,7 +438,7 @@
     "category": "Cones",
     "description": "Authentic Saffron prepared with real Pistachio nuts served in a cone just for you.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-kesar-pista.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -450,7 +450,7 @@
     "category": "Cones",
     "description": "Nutty pistachio flavours blended with pure milk to make a creamy ice cream in a cone.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/cones-pista.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cones/"
@@ -474,7 +474,7 @@
     "category": "Cups",
     "description": "A delicious twist of mint and pan flavour in a classic kulfi",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-banarasi-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -486,7 +486,7 @@
     "category": "Cups",
     "description": "True decadent Belgian chocolate in a dreamy cup of ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-belgium-chocolate.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -498,7 +498,7 @@
     "category": "Cups",
     "description": "In this specialty, chocolate gets a lot chocolatier. Yumm! We bet you’ll love to be blown away by this cyclone!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-chocolate-cyclone.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ripple-special-ice-cream/"
@@ -510,7 +510,7 @@
     "category": "Cups",
     "description": "Pure chocolate indulgence served in a big cup for your delight.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-chocolate-to-chocolate.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -522,7 +522,7 @@
     "category": "Cups",
     "description": "",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-classic-belgium-chocolate.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -534,7 +534,7 @@
     "category": "Cups",
     "description": "Nothing tasted better than a classic cup of vanilla ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-classic-vanila.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -546,7 +546,7 @@
     "category": "Cups",
     "description": "Taste the flavours of dark cookie crumbled in a bed of pure milk malai.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-cookies-n-cream.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -582,7 +582,7 @@
     "category": "Cups",
     "description": "Delicious flavours of fresh golden mango in a big cup to make every season even more special.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-fresh-mango.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-80ml/"
@@ -594,7 +594,7 @@
     "category": "Cups",
     "description": "The most authentic classic strawberry flavour for you to indulge in whenever you want!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-fresh-strawberry.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-80ml/"
@@ -606,7 +606,7 @@
     "category": "Cups",
     "description": "Vanilla icecream with strawberry, mango, pineapple, guava & pomegranate",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-fruit-rocking.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/ripple-special-ice-cream/"
@@ -618,7 +618,7 @@
     "category": "Cups",
     "description": "It's time to experience the aroma of Real Guava",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-guava.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/naturals/"
@@ -642,7 +642,7 @@
     "category": "Cups",
     "description": "The royal flavour of Cashew Nuts melded with the exotic taste of figs.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-kaju-anjeer.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -654,7 +654,7 @@
     "category": "Cups",
     "description": "The exclusive taste of Gulkand, which is native to India, topped with the royal taste of cashews and delicious figs in a light and creamy ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-kashmiri-anjir-gulkand.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -666,7 +666,7 @@
     "category": "Cups",
     "description": "The true taste of Gujarat in a kulfi.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-kathiyawadi-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -678,7 +678,7 @@
     "category": "Cups",
     "description": "The goodness of Indian Saffron put together with milk and cashew nuts and served in a big cup just for you.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-kesar-kaju-katli.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -690,7 +690,7 @@
     "category": "Cups",
     "description": "Tasty kulfi made with pure milk and malai topped off with an assortment of nuts!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-kulfi-nut.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -702,7 +702,7 @@
     "category": "Cups",
     "description": "",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-mango.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -714,7 +714,7 @@
     "category": "Cups",
     "description": "A big serving of delicious ice-cream made with evaporated milk and almonds.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-mawa-badam.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -738,7 +738,7 @@
     "category": "Cups",
     "description": "Delicious pineapple flavoured ice cream in a big cup.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-pina-chink.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-100ml/"
@@ -750,7 +750,7 @@
     "category": "Cups",
     "description": "Indulge in your favourite kulfi with saffron flavour",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-rajasthani-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/cups/"
@@ -774,7 +774,7 @@
     "category": "Cups",
     "description": "Delicious vanilla ice cream served in a big cup. Enjoy it just as it is or add your favourite toppings!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/cups-vanilla.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/big-cup-80ml/"
@@ -786,7 +786,7 @@
     "category": "Gully Gola",
     "description": "The traditional Indian frozen pure milk dessert that has absolutely no sugar but is devilishly delicious.",
     "slogan": "",
-    "price": null,
+    "price": 20,
     "image": "images/sheetal/gully-gola-chocolate-chips.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/gully-gola/"
@@ -798,7 +798,7 @@
     "category": "Gully Gola",
     "description": "Classic vanilla prepared without any sugar but with a whole lot of love and sweetness.",
     "slogan": "",
-    "price": null,
+    "price": 20,
     "image": "images/sheetal/gully-gola-coconut.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/gully-gola/"
@@ -810,7 +810,7 @@
     "category": "Gully Gola",
     "description": "The Kachi Keri flavour provides Gully Gola a unique existence with serene experience.",
     "slogan": "",
-    "price": null,
+    "price": 20,
     "image": "images/sheetal/candies-dollies-and-bars-kachi-keri.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/gully-gola/"
@@ -822,7 +822,7 @@
     "category": "Gully Gola",
     "description": "The flavour of Kala Khata, which has conquered the world of taste, now gets blended with Gully Gola.",
     "slogan": "",
-    "price": null,
+    "price": 20,
     "image": "images/sheetal/candies-dollies-and-bars-kala-khatta.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/gully-gola/"
@@ -834,7 +834,7 @@
     "category": "Gully Gola",
     "description": "",
     "slogan": "",
-    "price": null,
+    "price": 20,
     "image": "images/sheetal/gully-gola-tutti-frutti.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/gully-gola/"
@@ -846,7 +846,7 @@
     "category": "Kulfi",
     "description": "The favourite Indian special spices ground together for this tasty frozen delight.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-anjir-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/premium-kulfi/"
@@ -870,7 +870,7 @@
     "category": "Kulfi",
     "description": "The exotic flavors of chicku infused in a milk Kulfi.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-chiku-candy.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -882,7 +882,7 @@
     "category": "Kulfi",
     "description": "Tender coconut adds flavour to our pure milk Kulfi.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-coconut-candy.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -894,7 +894,7 @@
     "category": "Kulfi",
     "description": "True decadent Belgian chocolate in a dreamy cup of ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-kadai-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/premium-kulfi/"
@@ -906,7 +906,7 @@
     "category": "Kulfi",
     "description": "A decadent frozen milk desert made with rich pure milk.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-masti-chowpati.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -918,7 +918,7 @@
     "category": "Kulfi",
     "description": "Evaporated whole milk with malai blended together to form the perfect kulfi.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-mawa-malai.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -930,7 +930,7 @@
     "category": "Kulfi",
     "description": "The exotic flavour of paan blended with pure milk to prepare a one of its kind kulfi.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-paan-pasand.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -942,7 +942,7 @@
     "category": "Kulfi",
     "description": "Creamy malai with wholesome pistachios in a Kulfi.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-pista-malai.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -954,7 +954,7 @@
     "category": "Kulfi",
     "description": "Tangy indian tamarind mixed with some fantastic secret spices and condiments for a delicious lickable ice candy.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-premium-mawa-malai.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -966,7 +966,7 @@
     "category": "Kulfi",
     "description": "The perfect classic taste of Kala Khatta in a frozen candy form for your sweet and sour cravings.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-punjab-di-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/premium-kulfi/"
@@ -978,7 +978,7 @@
     "category": "Kulfi",
     "description": "Tangy indian tamarind mixed with some fantastic secret spices and condiments for a delicious lickable ice candy.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-rajbhog.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -990,7 +990,7 @@
     "category": "Kulfi",
     "description": "The taste of fresh Indian lemons and condiments prepared together in a candy form.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-rajwadi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -1002,7 +1002,7 @@
     "category": "Kulfi",
     "description": "Tangy indian tamarind mixed with some fantastic secret spices and condiments for a delicious lickable ice candy.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-rose-masti.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kulfi/"
@@ -1014,7 +1014,7 @@
     "category": "Kulfi",
     "description": "The original Orange candy bursting with citrus flavours.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/sheetal/kulfi-traditional-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/premium-kulfi/"
@@ -1026,7 +1026,7 @@
     "category": "Novelties",
     "description": "The original Mango dolly, but in a Kid’s special size.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-aam-hi-aam.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kids-special-ice-cream/"
@@ -1038,7 +1038,7 @@
     "category": "Novelties",
     "description": "Chocolate Candy in an attractive lolly style stick. Kids absolutely love it!",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-bon-bon.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kids-special-ice-cream/"
@@ -1050,7 +1050,7 @@
     "category": "Novelties",
     "description": "Delicious Mix Fruit, Strawberry, Vanilla",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-classic-cassata.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1062,7 +1062,7 @@
     "category": "Novelties",
     "description": "A lollypop but also an Ice-Cream.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-lolly-polly.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kids-special-ice-cream/"
@@ -1074,7 +1074,7 @@
     "category": "Novelties",
     "description": "The goodness of a delivious kulfi served in an earthen matka.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/kulfi-matka-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1086,7 +1086,7 @@
     "category": "Novelties",
     "description": "Nothing makes kids happier than a big bite of a chocolate ice cream candy!",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-mega-bite-box.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/kids-special-ice-cream/"
@@ -1098,7 +1098,7 @@
     "category": "Novelties",
     "description": "Flavour full ice cream slice with a covering of exotic nuts.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-nutty-roll-cut.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1110,7 +1110,7 @@
     "category": "Novelties",
     "description": "The mesmerising flavour of our traditional pan in the form of an ice cream slice.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-paan-masala-icecream.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1122,7 +1122,7 @@
     "category": "Novelties",
     "description": "Traditional Royal kulfi in a matka",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-rajwadi-matka.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1134,7 +1134,7 @@
     "category": "Novelties",
     "description": "Indulge in the decadent flavours of Pista, Cashew and Saffron",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-sajan-sajni-roll-cut.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1146,7 +1146,7 @@
     "category": "Novelties",
     "description": "Single scoop of ice cream dotted with raisins and fresh cream.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-single-sunday.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1158,7 +1158,7 @@
     "category": "Novelties",
     "description": "Enjoy the flavours of Rose, Pista, Orange, Vanilla",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-slice-cassata.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1170,7 +1170,7 @@
     "category": "Novelties",
     "description": "A classic favourite of mix fruit, orange, vanilla in a cassata.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/sheetal/novelties-traditional-cassata.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/novelties/"
@@ -1194,7 +1194,7 @@
     "category": "Sandwich",
     "description": "",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/sheetal/sandwich-cookies-ice-cream-sandwich.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/products/"
@@ -1206,7 +1206,7 @@
     "category": "Sugar Free",
     "description": "The traditional Indian frozen pure milk dessert that has absolutely no sugar but is devilishly delicious.",
     "slogan": "",
-    "price": null,
+    "price": 80,
     "image": "images/sheetal/sugar-free-sugar-free-kulfi.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/sugar-free/"
@@ -1218,7 +1218,7 @@
     "category": "Sugar Free",
     "description": "Classic vanilla prepared without any sugar but with a whole lot of love and sweetness.",
     "slogan": "",
-    "price": null,
+    "price": 80,
     "image": "images/sheetal/sugar-free-sugar-free-vanilla.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/sugar-free/"
@@ -1230,7 +1230,7 @@
     "category": "Take Home",
     "description": "Rich dry fruits from Afghanistan lend an unforgettable taste to this creamy and delicious ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-afghan-dry-fruit.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1242,7 +1242,7 @@
     "category": "Take Home",
     "description": "The true taste of toasted almonds and pure milk ice cream blended together in the best recipe to make a soft and creamy ice cream!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-almond-carnival.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1254,7 +1254,7 @@
     "category": "Take Home",
     "description": "Jelly, fresh nuts and fruit come together in this delicious surprise of an ice cream. Pull together everyone that you love to enjoy a scoop with you.",
     "slogan": "Bestseller",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cones-american-nuts.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1266,7 +1266,7 @@
     "category": "Take Home",
     "description": "Decadent chocolate combined with soft bananas served in a take home premium tub for your delight.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-banana-chocolate.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/take-home/"
@@ -1278,7 +1278,7 @@
     "category": "Take Home",
     "description": "A tangy sweet taste of the black current in our ice cream is an absolutely memorable flavour. Enjoy it today with your friends and family.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-black-currant.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1290,7 +1290,7 @@
     "category": "Take Home",
     "description": "The classic flavour of Butterscotch with the pureness of Sheetal milk served in a party pack!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-butter-scotch.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1302,7 +1302,7 @@
     "category": "Take Home",
     "description": "The most exotic cashew nuts loaded with robust flavours put together in the best creamy ice cream just for you!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-cashew-treat.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1314,7 +1314,7 @@
     "category": "Take Home",
     "description": "Taste the exotic flavours of cherries in this Cherry Berry ice cream. A taste so decadent that you might just finish the bulk pack all by yourself.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-cherry-berry.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1326,7 +1326,7 @@
     "category": "Take Home",
     "description": "The scrumptious taste of decadent chocolate ice cream loaded with chocolate chips for that sinful taste.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/gully-gola-chocolate-chips.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1338,7 +1338,7 @@
     "category": "Take Home",
     "description": "Pure fudgy chocolate indulgence served in a take home tub for your delight.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-chocolate-fudge.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/take-home/"
@@ -1350,7 +1350,7 @@
     "category": "Take Home",
     "description": "Dark chocolate cookies crumbled into a bed of rich and creamy vanilla ice cream. Enjoy this alone or share it with your entire gang!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cups-cookies-n-cream.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1362,7 +1362,7 @@
     "category": "Take Home",
     "description": "Experience the luxury of fresh fruit in an ice cream form with our fresh fruit ice creams.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-fresh-fruit.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/take-home/"
@@ -1374,7 +1374,7 @@
     "category": "Take Home",
     "description": "Delicious flavours of fresh golden mango in a big cup to make every season even more special.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cups-fresh-mango.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1386,7 +1386,7 @@
     "category": "Take Home",
     "description": "The rich goodness of evaporated whole milk in a rich creamy and soft ice cream with fruits.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-fruti-bonanza.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1398,7 +1398,7 @@
     "category": "Take Home",
     "description": "Delicious Saffron flavoured ice cream",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-golden-pearl.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1410,7 +1410,7 @@
     "category": "Take Home",
     "description": "The royal flavour of Cashew Nuts melded with the exotic taste of figs.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cups-kaju-anjeer.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1422,7 +1422,7 @@
     "category": "Take Home",
     "description": "The king of dry fruits mixed with in a decadent and soft ice cream brought to you in a bulk pack.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cones-kaju-draksh.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1434,7 +1434,7 @@
     "category": "Take Home",
     "description": "The exclusive taste of gulkand which is native to India, topped with the royal taste of cashews in a light and creamy ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-kaju-gulkand.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1446,7 +1446,7 @@
     "category": "Take Home",
     "description": "Enjoy the traditional flavours of Kaju Halwa in an ice cream with our premium tub.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-kaju-halwa.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/take-home/"
@@ -1458,7 +1458,7 @@
     "category": "Take Home",
     "description": "The king of fruits and the king of nuts are merged in perfect harmony in this delicious and decadent ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-kaju-mango.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1470,7 +1470,7 @@
     "category": "Take Home",
     "description": "The exclusive taste of Gulkand, which is native to India, topped with the royal taste of cashews and delicious figs in a light and creamy ice cream.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-kashmiri-anjeer-gulkand.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1482,7 +1482,7 @@
     "category": "Take Home",
     "description": "Indulge in the pure taste of Saffron mixed with almonds and pistachio.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-kesar-badam-pista.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/take-home/"
@@ -1494,7 +1494,7 @@
     "category": "Take Home",
     "description": "The goodness of Indian Saffron put together with milk and cashew nuts and served in a big cup just for you.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-kesar-kaju-katri.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1506,7 +1506,7 @@
     "category": "Take Home",
     "description": "The tantalizing aroma of Indian Zaafran (kesar) in a recipe with real pistachio nuts in a big cup.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cones-kesar-pista.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1518,7 +1518,7 @@
     "category": "Take Home",
     "description": "Traditional flavours of real Indian Kulfi loaded with nuts.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cups-kulfi-nut.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/tub-ice-cream/"
@@ -1530,7 +1530,7 @@
     "category": "Take Home",
     "description": "A big serving of delicious ice-cream made with evaporated milk and almonds.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/cups-mawa-badam.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1542,7 +1542,7 @@
     "category": "Take Home",
     "description": "Tangy citrus flavours of the Indian Orange- simple, rich, classic and delicious brought to you in a bulk pack so that everyone can enjoy with you!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-orange-masti.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1554,7 +1554,7 @@
     "category": "Take Home",
     "description": "Experience the true taste of the divine in this wonderful ice cream. Try it with your friends and family today!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-panchamrut.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1566,7 +1566,7 @@
     "category": "Take Home",
     "description": "Enjoy the taste of this tropical fruit in an ice cream in our bulk pack. Delicious, sweet, soft and creamy.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-pineapple.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1578,7 +1578,7 @@
     "category": "Take Home",
     "description": "The rich and creamy goodness of wholesome malai with the nutty twist of Pistachio makes this Sheetal Ice cream flavour a popular choice. Have you tried it yet?",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/kulfi-pista-malai.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1590,7 +1590,7 @@
     "category": "Take Home",
     "description": "Ice cream loaded with dry fruits/nuts and made with milk, cream, almonds, pistachio, cashew, cardamom powder and saffron.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/kulfi-rajbhog.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1602,7 +1602,7 @@
     "category": "Take Home",
     "description": "How can anything be better than the authentic taste of Sitafal melded into the ice creamy goodness of pure milk?",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-sitafal.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1614,7 +1614,7 @@
     "category": "Take Home",
     "description": "The classic taste of this exotic fruit is the best ice cream to share with your friends and family at any occasion! Get your pack today!",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-strawberry.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1626,7 +1626,7 @@
     "category": "Take Home",
     "description": "Our special Thandai ice cream is a unique twist to the traditional beverage. This ice cream is so tasty, you’ll be reaching out for more and more.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-thandai.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1638,7 +1638,7 @@
     "category": "Take Home",
     "description": "The world loves tutti fruity! Loaded with these wonderful little bits, this ice cream is perfect for any occasion.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-tutty-fruity.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1650,7 +1650,7 @@
     "category": "Take Home",
     "description": "Pure vanilla ice cream made with pure milk. Enjoy it just as it is or add your favourite toppings to make it even more delicious.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-vanila.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/party-pack/"
@@ -1662,7 +1662,7 @@
     "category": "Take Home",
     "description": "The tantalizing aroma of Indian Zaafrani (kesar) in a recipe with real pistachio nuts in a premium tub.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/sheetal/take-home-zafrani-kesar-pista.png",
     "hide": false,
     "sourceUrl": "https://www.sheetalicecream.com/take-home/"
@@ -1686,7 +1686,7 @@
     "category": "Badabite Ice Cream Candy",
     "description": "You won’t budge without finishing it to the stick! It’s so soft, smooth and chocolatey that it will rock your world.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/badabite-ice-cream-candy-choco-fudge.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1698,7 +1698,7 @@
     "category": "Badabite Ice Cream Candy",
     "description": "You can never go wrong with Cookies 'N' Cream! A chocolatey crunchy, cookie-packed treat covered witH chocolate.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/badabite-ice-cream-candy-cookies-n-cream.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1722,7 +1722,7 @@
     "category": "Badabite Ice Cream Candy",
     "description": "A royal taste of the king of fruits! Pure pulpy mango Ice Cream that can be indulged in all year round!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/badabite-ice-cream-candy-mango.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1746,7 +1746,7 @@
     "category": "Chocolate Candies",
     "description": "The traditional style chocobar Ice Cream, with a Vadilal promise of ultimate deliciousness!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/chocolate-candies-best-chocobar.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1758,7 +1758,7 @@
     "category": "Chocolate Candies",
     "description": "A crispy crunchy outer layer with chocolate Ice Cream on the inside mixed with a hint of vanilla! An explosion of flavour, it is!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/chocolate-candies-bomber.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1770,7 +1770,7 @@
     "category": "Chocolate Candies",
     "description": "Pure creamy vanilla on the inside with a chocolatey covering on the outside. It’s wholesome… inside out!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/chocolate-candies-chocobar.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1782,7 +1782,7 @@
     "category": "Chocolate Candies",
     "description": "Chocolatey on the outside, chocolatey on the inside! A crispy, chocolatey layer covered with a chocolatey slab on the inside.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/chocolate-candies-funtastic.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1794,7 +1794,7 @@
     "category": "Chocolate Candies",
     "description": "A chocolatey crust on the outside and creamy, smooth vanilla Ice Cream on the inside. Doubly yummy, indeed!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/chocolate-candies-one-up-chocobar.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1806,7 +1806,7 @@
     "category": "Cones",
     "description": "Treat yourself to an Ice Cream cone that is crunchy, tasty and butterscotch-y. We’re drooling already!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cones-butterscotch-treat-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1818,7 +1818,7 @@
     "category": "Cones",
     "description": "Relish in this fantabulous combination of chocolate and vanilla. It is bound to make you want more.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cones-choco-vanilla.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1830,7 +1830,7 @@
     "category": "Cones",
     "description": "This mini cone is BIG on flavours. Delicious butterscotch, chocolate fudge and a quick fix for all your dessert cravings!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cones-mini-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1842,7 +1842,7 @@
     "category": "Cones",
     "description": "What’s not to like when there is salty, crunchy bits of pistachio and a chocolate-topped Vadilal twist.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cones-pista.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1854,7 +1854,7 @@
     "category": "Cones",
     "description": "You can never get enough of the royal butterscotch with Vadilal’s touch of crunchy chocolate flakes and syrup.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cones-royal-butterscotch.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1866,7 +1866,7 @@
     "category": "Cones",
     "description": "When hunger strikes, oozing melted chocolate wrapped with wafer cones topped with crunchy nuts is the only solution.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cones-volcano-chocolate.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1878,7 +1878,7 @@
     "category": "Consumer Bulk Packs",
     "description": "Go nuts the American way! Ice Cream sprinkled with loads of premium nuts.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/vadilal/consumer-bulk-packs-american-nuts.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1890,7 +1890,7 @@
     "category": "Consumer Bulk Packs",
     "description": "An Ice Cream that will taste yum with just about anything.",
     "slogan": "",
-    "price": null,
+    "price": 200,
     "image": "images/vadilal/consumer-bulk-packs-vanilla.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1902,7 +1902,7 @@
     "category": "Cool-Fi",
     "description": "The iconic Kesar-Badam combination in Cool-Fi form is to die for! One bite of this delightful combo is sure to make you go wow.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-kesar-badam-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1914,7 +1914,7 @@
     "category": "Cool-Fi",
     "description": "A traditional Indian Ice cream that’s now denser, creamier, and made to appeal to your taste!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-mava-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1926,7 +1926,7 @@
     "category": "Cool-Fi",
     "description": "A royal blend of premium nuts, with streaks of saffron and cardamom, sprinkled on top of a rich and creamy Ice Cream. Grand!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-rajbhog-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1938,7 +1938,7 @@
     "category": "Cool-Fi",
     "description": "A rich, creamy ice cream blended with crunchy almonds. It’ll make you say Ba-Damn it’s delicious.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-rajwadi-badam-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1950,7 +1950,7 @@
     "category": "Cool-Fi",
     "description": "Fresh, creamy Ice Cream topped with the finest selection of pistachios. It’ll make you say pista-ciao to every other flavour.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-rajwadi-pista-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1962,7 +1962,7 @@
     "category": "Cool-Fi",
     "description": "A royal treat of creamy condensed milk ice cream topped with grated pistachio and premium nuts.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-shahi-pista-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1974,7 +1974,7 @@
     "category": "Cool-Fi",
     "description": "The classic Indian Ice cream is now creamier and richer to tingle your taste buds!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/cool-fi-special-mava-cool-fi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1986,7 +1986,7 @@
     "category": "Cup Treats",
     "description": "It’s time to go nuts with this combination of cashew and raisin bits.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cup-treats-kaju-draksh-special-cup-treat-90-ml.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -1998,7 +1998,7 @@
     "category": "Cup Treats",
     "description": "With premium nuts paired with some saffron streaks, it doesn’t get any desi-er than this.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cup-treats-kesar-pista-cup-treat-90-ml.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2010,7 +2010,7 @@
     "category": "Cup Treats",
     "description": "If a sweet green tint is your colour and savoury nuts are your preference, then this pistachio flavour is the one for you.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cup-treats-pista-cup-treat-55-ml.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2022,7 +2022,7 @@
     "category": "Cup Treats",
     "description": "The classic, refreshing taste of strawberry with a Vadilal twist.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cup-treats-strawberry-special-cup-treat-55-ml.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2034,7 +2034,7 @@
     "category": "Cup Treats",
     "description": "The crunchy praline sprinkled on a caramelised, buttery serving is what makes this flavour an all-time favourite.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cup-treats-super-butterscotch-cup-treat-90-ml.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2046,7 +2046,7 @@
     "category": "Cup Treats",
     "description": "The self-indulgent, creamy flavour that’ll never go out of style.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/cup-treats-super-vanilla-cup-treat-55-ml.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2058,7 +2058,7 @@
     "category": "Dollies",
     "description": "Tangy and raw mango flavoured Ice Cream – a unique treat, like you!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/dollies-katcha-pakka-aam-dolly.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2094,7 +2094,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "What’s an Ice Cream without nuts? Its deliciousness is gonna make you go really nuts.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-american-nuts-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2118,7 +2118,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "You cannot go wrong with ice cream and brownie! Chocolate flavoured Ice Cream topped with soft and chocolatey brownie.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-choco-brownie-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2130,7 +2130,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "The taste of pure chocolate with a pleasant crackling sound all in one. It's chocolatey and crunchy, it's Choco Crackle!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-choco-crackle-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2142,7 +2142,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "Chocolate oozing on top of freshly skimmed milk Ice Cream with a center of raspberry sauce.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-choco-raspberry-crush-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2166,7 +2166,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "Fall in love with a thick chocolatey disc over Ice Cream sprinkled with chocolate flakes and cookie crumbs.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-cookie-disc-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2178,7 +2178,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "Nuts and chocolate toppings on Butterscotch Ice Cream. You’re gonna go NUTS over it!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-nutty-butterscotch-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2190,7 +2190,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "Saffron and pistachio flavoured Ice Cream topped with melted chocolate, freshly grated pistachio, and saffron!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-prime-pista-kesar-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2202,7 +2202,7 @@
     "category": "Flingo Ice Cream Cone",
     "description": "Here to make you swirl with delicious strawberry swirled in a wafer cone, sprinkled with cake crumbles and melted chocolate!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/flingo-ice-cream-cone-strawberry-swirl-cake-flingo-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2214,7 +2214,7 @@
     "category": "Frootful",
     "description": "An ice cream so good it’ll electrify your senses! The richness of black currant, now on an Ice Cream stick.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/frootful-black-currant.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2226,7 +2226,7 @@
     "category": "Frootful",
     "description": "The king of fruits now on an Ice Cream stick! It’s juicy and refreshing.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/frootful-mango.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2238,7 +2238,7 @@
     "category": "Frootful",
     "description": "Tangy treats for the soul. Treat yourself to a refreshingly juicy orange Ice Cream!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/frootful-orange-juicee.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2250,7 +2250,7 @@
     "category": "Gourmet Cups",
     "description": "Wait wait… it’s chocolate ice cream WITH soft chocolate WITH chocolate brownie! Jackpot!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/gourmet-cups-choco-brownie-dip-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2262,7 +2262,7 @@
     "category": "Gourmet Cups",
     "description": "A treasure trove of premium nuts. Eat your way to crunchy, delightful and the finest Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/gourmet-cups-dry-fruit-khazana-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2274,7 +2274,7 @@
     "category": "Gourmet Cups",
     "description": "Relish your way into the saffron-filled Ice Cream. It’s a uniquely delightful twist for your taste buds.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/gourmet-cups-kesar-mohini-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2310,7 +2310,7 @@
     "category": "Gourmet Natural Kulfi",
     "description": "A uniquely flavoured, rich and classy Ice Cream that’s sure to tantalise your tastebuds and make you want more.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/vadilal/gourmet-natural-kulfi-badam-pista-kulfi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2322,7 +2322,7 @@
     "category": "Gourmet Natural Kulfi",
     "description": "Treat yourself with royalty. Taste, eat, repeat. An Ice Cream loaded in pure royalty with every bite.",
     "slogan": "",
-    "price": null,
+    "price": 60,
     "image": "images/vadilal/gourmet-natural-kulfi-rajwadi-kulfi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2358,7 +2358,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "Unravel the many layers of this tasteful Ice Cream. It’s yummy and filled with the goodness of Ice Cream, nuts and ultimate deliciousness.",
     "slogan": "",
-    "price": null,
+    "price": 293,
     "image": "images/vadilal/gourmet-natural-tubs-falooda-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2394,7 +2394,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "This rich, creamy, and naturally flavoured Ice Cream is a traditional favourite with a unique Vadilal touch that will surely make you crave more.",
     "slogan": "",
-    "price": null,
+    "price": 293,
     "image": "images/vadilal/gourmet-natural-tubs-kesar-rasmalai-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2406,7 +2406,7 @@
     "category": "Gourmet Natural Tubs",
     "description": "Presenting the world-famous strawberries in the best way you can ever enjoy. An Ice Cream that’s irresistible and will never cease to amaze you.",
     "slogan": "",
-    "price": null,
+    "price": 293,
     "image": "images/vadilal/gourmet-natural-tubs-mahabaleshwar-strawberry-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2418,7 +2418,7 @@
     "category": "Gourmet Tubs",
     "description": "The Ice Cream that will make you go nuts! Ice Cream sprinkled with an abundance of premium nuts. Crunchy!",
     "slogan": "",
-    "price": null,
+    "price": 240,
     "image": "images/vadilal/gourmet-tubs-american-nuts-tubs.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2430,7 +2430,7 @@
     "category": "Gourmet Tubs",
     "description": "The classic, evergreen flavour – rich, tasty and chocolatey – an Ice Cream that can never go wrong.",
     "slogan": "",
-    "price": null,
+    "price": 310,
     "image": "images/vadilal/gourmet-tubs-belgian-chocolate-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2442,7 +2442,7 @@
     "category": "Gourmet Tubs",
     "description": "An overload of chocolate with a pleasant crackling crunch. It’s chocolatey, it’s crunchy, it’s heavenly!",
     "slogan": "",
-    "price": null,
+    "price": 240,
     "image": "images/vadilal/gourmet-tubs-choco-crakle-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2466,7 +2466,7 @@
     "category": "Gourmet Tubs",
     "description": "Crunchy, buttery, creamy! Butterscotch Ice Cream with crispy and crunchy bites of butterscotch.",
     "slogan": "",
-    "price": null,
+    "price": 240,
     "image": "images/vadilal/gourmet-tubs-crunchy-butterscotch-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2478,7 +2478,7 @@
     "category": "Gourmet Tubs",
     "description": "An enticing new Ice Cream loaded with deliciousness and crunchiness in its every bite.",
     "slogan": "",
-    "price": null,
+    "price": 240,
     "image": "images/vadilal/gourmet-tubs-rich-cookie-crumble-tub.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2502,7 +2502,7 @@
     "category": "Ice Cream Cakes",
     "description": "It’s fun when you have cake, Ice Cream, and lots of red. That’s right! It’s a Red Velvet Ice Cream Cake!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/ice-cream-cakes-artisan-red-velvet-ice-cream-cake.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2526,7 +2526,7 @@
     "category": "Ice Cream Cakes",
     "description": "A rainbow of flavours topped with choco chips, freshly grated nuts and a base of soft cake – a flavourful delight!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/ice-cream-cakes-cassatta-ice-cream-cake.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2550,7 +2550,7 @@
     "category": "Ice Cream Cakes",
     "description": "Overloaded with rich and delectable chocolate layered with soft and spongy cake. It’s absolutely irresistible!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/ice-cream-cakes-chocolate-overload-ice-cream-cake.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2574,7 +2574,7 @@
     "category": "Ice Trooper Ice Cream",
     "description": "Vanilla with a twist? A dream come true! Vanilla enhanced with a pulpy swirl.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/ice-trooper-ice-cream-double-spin-trooper.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2586,7 +2586,7 @@
     "category": "Ice Trooper Ice Cream",
     "description": "If this doesn’t make you smile, we don’t know what will! Soft, sweet, a little tangy, pineapple-flavoured Ice Cream Candy.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/ice-trooper-ice-cream-smiley-launcher-trooper.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2598,7 +2598,7 @@
     "category": "Ice Trooper Ice Cream",
     "description": "Fruity-Tutti-Frutti – triple the fun! The magical combination of black currant and tutti-frutti in an Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/ice-trooper-ice-cream-thunderstik-trooper.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2610,7 +2610,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "Less is more? Not when we’re talking about a jumbo scoop of Ice Cream laced with fresh fruits, nuts, and jellies! Then, even more, is not enough!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-american-nuts-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2622,7 +2622,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "Classic Vanilla flavoured Ice Cream sprinkled with caramelized, roasted almonds. Classic, delicious and oh-so-rich!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-badam-carnival-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2646,7 +2646,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "LOADS of choco chips in a GIANT cup full of chocolate Ice Cream. A treat that will make you say… “give me more!”.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-chocolate-chips-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2658,7 +2658,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "Enjoy this giant scoop of refreshing fruit Ice Cream all year round. It's rich, creamy and so luscious you are sure to come back for more.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-fresh-sitafal-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2670,7 +2670,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "The kaju carnival – versatile! Super crunchy cashew nuts and fresh raisins spread over the smooth silky Vanilla Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-kaju-draksh-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2682,7 +2682,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "Want to revel in some royalty? Fresh nuts with streaks of saffron and cardamom in one giant scoop of tasty Ice Cream is the way to go!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-rajbhog-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2694,7 +2694,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "Sweet with a hint of spice, is sprinkled with freshly grated pistachio, saffron, and cardamom makes for a combo your palate won’t forget!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-real-kesar-pista-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2706,7 +2706,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "The bigger and richer, the better. Especially when it’s chocolate! Indulge in a giant scoop of rich, chocolate overloaded Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-rich-chocolate-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2718,7 +2718,7 @@
     "category": "Jumbo Ice Cream Cups",
     "description": "Ahh! The evergreen classic. You can’t go wrong with this jumbo scoop of pure, tasty classic Vanilla Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/jumbo-ice-cream-cups-vanilla-jumbo-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2730,7 +2730,7 @@
     "category": "Kulfies",
     "description": "Who can possibly say no? An Ice Cream inspired by Mumbai’s hotspot. A sweet and creamy treat topped with cardamom and fresh nuts.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/vadilal/kulfies-chowpatty-kulfi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2742,7 +2742,7 @@
     "category": "Kulfies",
     "description": "Made from the extracts of the male flowers of a screw pine tree and sweetened condensed milk Ice Cream, this is a concoction as unique as it gets.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/vadilal/kulfies-kewra-kulfi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2754,7 +2754,7 @@
     "category": "Kulfies",
     "description": "Get ready to be mesmerized with thick, creamy, rich layers of nothing less than deliciousness.",
     "slogan": "",
-    "price": null,
+    "price": 45,
     "image": "images/vadilal/kulfies-rabdi-kulfi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2766,7 +2766,7 @@
     "category": "No Sugar Ice Cream Cups",
     "description": "What screams more healthy than some nuts and no sugar? It’s our Roasted Almond Ice Cream!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/no-sugar-ice-cream-cups-roasted-almond-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2778,7 +2778,7 @@
     "category": "No Sugar Ice Cream Cups",
     "description": "Reward your tastebuds with a royal treat of dried figs and no sugar. Try our Shahi Anjeer now!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/no-sugar-ice-cream-cups-shahi-anjeer-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2790,7 +2790,7 @@
     "category": "No Sugar Ice Cream Cups",
     "description": "The perfect flavour for those who like their Ice Cream guilt-free and sugar-free!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/no-sugar-ice-cream-cups-vanilla-no-sugar-ice-cream-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2802,7 +2802,7 @@
     "category": "Novelties",
     "description": "The pure taste of mangoes all year round? Yes, please! The chaska of alphonso mango – delivered!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/novelties-aam-chaska-falala.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2814,7 +2814,7 @@
     "category": "Novelties",
     "description": "Everybody’s favourite combination with multiple flavours and added nuts! Truly irresistible!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/novelties-cassatta-slice.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2826,7 +2826,7 @@
     "category": "Novelties",
     "description": "Bite your way into the blissful world of ‘cookielisciousness’.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/novelties-cookie-ice-cream-sandwich.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2838,7 +2838,7 @@
     "category": "Novelties",
     "description": "Ah! The ultimate snack! Irresistible ice cream sandwiched between crispy, crunchy chocolate. You can’t have just one!",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/novelties-ice-cream-sandwich.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2850,7 +2850,7 @@
     "category": "Novelties",
     "description": "The traditional favourite with a modern touch! Loved by everyone.",
     "slogan": "",
-    "price": null,
+    "price": 30,
     "image": "images/vadilal/novelties-kesar-matka-kulfi.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2862,7 +2862,7 @@
     "category": "Other",
     "description": "",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/other-premium-cone.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2874,7 +2874,7 @@
     "category": "Party Packs",
     "description": "Your favourite Alphonso Mango is now in Ice Cream. So, lick, slurp and indulge in your favourite fruit all year, and any time you want.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-alphonso-mango-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2886,7 +2886,7 @@
     "category": "Party Packs",
     "description": "Why choose one when you can have ‘em all? Your favourite nuts in your favourite Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-american-nuts-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2898,7 +2898,7 @@
     "category": "Party Packs",
     "description": "Roasted. Caramelised. Almonds. That’s it. That’s all we have to say!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-badam-carnival-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2910,7 +2910,7 @@
     "category": "Party Packs",
     "description": "It’s exquisite and exotic, just like the place you travel to as soon as you take the first bite of this creamy goodness.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-black-currant-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2922,7 +2922,7 @@
     "category": "Party Packs",
     "description": "Delve into the rich, creamy and buttery Ice Cream loaded with a caramelised crunch in its every bite.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-butterscotch-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2934,7 +2934,7 @@
     "category": "Party Packs",
     "description": "Rich, creamy chocolate Ice Cream with bits of brownie in it? Ready to indulge in it in 3, 2, 1!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-choco-brownie-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2946,7 +2946,7 @@
     "category": "Party Packs",
     "description": "The classic combo of chocolate chip and chocolate Ice Cream with Vadilal’s touch of deliciousness. What’s not to love?",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-chocolate-chips-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2958,7 +2958,7 @@
     "category": "Party Packs",
     "description": "Crumbs of cookie sprinkled in a bed of chocolate Ice Cream. It’s a dessert lover’s delight for a reason!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-cookies-n-cream-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2970,7 +2970,7 @@
     "category": "Party Packs",
     "description": "Something for every family member to enjoy! Bits of fruit in flavourful Ice Cream now available in a party pack.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-fruit-bonanza-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2982,7 +2982,7 @@
     "category": "Party Packs",
     "description": "Crunchy. Creamy. DELICIOUS! Dive into the flavoursome world of cashew nuts and vanilla Ice Cream.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-kaju-draksh-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -2994,7 +2994,7 @@
     "category": "Party Packs",
     "description": "Fresh cashew and raisin flavoured Ice Cream, the perfect combination for a perfect treat.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-kaju-kishmish-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3006,7 +3006,7 @@
     "category": "Party Packs",
     "description": "Premium nuts in every bite is a Vadilal promise! Experience the true desi Ice Cream now in a party pack for you and your family.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-kesar-pista-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3018,7 +3018,7 @@
     "category": "Party Packs",
     "description": "Bite into our classic pineapple Ice Cream and share a moment of joy with your loved ones.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-pineapple-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3030,7 +3030,7 @@
     "category": "Party Packs",
     "description": "A royal for a royalty like you! Its flavours will ‘raj’ over your  palate and trust us, you won't be able to stop from going for a second serving.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-rajbhog-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3042,7 +3042,7 @@
     "category": "Party Packs",
     "description": "Ice Cream sprinkled with freshly grated pistachio, saffron, and cardamom makes for a combo you won’t forget!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-real-kesar-pista-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3054,7 +3054,7 @@
     "category": "Party Packs",
     "description": "It’s not just chocolate. It’s a rich chocolate loaded with your favourite flavour - chocolate! Doesn’t that make it your perfect dessert partner?",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-rich-chocolate-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3066,7 +3066,7 @@
     "category": "Party Packs",
     "description": "This drool-worthy soft, velvety and real fruit Ice Cream is so delicious and refreshing that you won’t stop eating.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-rose-lychee-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3078,7 +3078,7 @@
     "category": "Party Packs",
     "description": "Relish in this rich, creamy and lip-smacking Ice Cream with fine chunks of sitaphal that will surely blow your mind and captivate your senses.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-sitafal-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3090,7 +3090,7 @@
     "category": "Party Packs",
     "description": "It’s sweet. It’s tasty. It’s strawberry! The delightfully fruity Ice Cream is ready to be the star of your next gathering!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-strawberry-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3102,7 +3102,7 @@
     "category": "Party Packs",
     "description": "A fruitalicious Ice Cream that will blow you away with its flavour and texture.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-tuti-fruity-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3114,7 +3114,7 @@
     "category": "Party Packs",
     "description": "An all-time favourite of every household, the Vanilla Klassic Ice Cream will keep your taste buds happy anytime, anywhere!",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-vanilla-klassic-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3126,7 +3126,7 @@
     "category": "Party Packs",
     "description": "No ifs, no buts, a perfect classic and a family favourite. An Ice Cream you can eat anyway you like and with whatever you like.",
     "slogan": "",
-    "price": null,
+    "price": 300,
     "image": "images/vadilal/party-packs-vanilla-party-pack.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3234,7 +3234,7 @@
     "category": "Sundae Cups",
     "description": "Our classic chocolate Ice Cream with a sprinkle of choco chips in a convenient cup is the answer to all your woes!",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/sundae-cups-chocolate-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3246,7 +3246,7 @@
     "category": "Sundae Cups",
     "description": "It’s very berry good. Don’t believe us? Try it yourself and get lost in the flavourful strawberry Ice Cream in a cup.",
     "slogan": "",
-    "price": null,
+    "price": 50,
     "image": "images/vadilal/sundae-cups-strawberry-cup.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3258,7 +3258,7 @@
     "category": "Sundae Spin",
     "description": "We took the classic flavours for a spin and came back with a delightful melody that is delicious, convenient and just as iconic!",
     "slogan": "",
-    "price": 30,
+    "price": 40,
     "image": "images/vadilal/sundae-spin-chocolate.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3270,7 +3270,7 @@
     "category": "Sundae Spin",
     "description": "A medley of flavours worthy of being your go-to Ice Cream for when you’re in the mood for a dessert that will light up your day.",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/sundae-spin-rainbow.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"
@@ -3282,7 +3282,7 @@
     "category": "Sundae Spin",
     "description": "A swirl of classic strawberry and vanilla Ice Cream. Dig in and enjoy a classic Ice Cream with a Vadilal spin!",
     "slogan": "",
-    "price": null,
+    "price": 40,
     "image": "images/vadilal/sundae-spin-strawberry.jpg",
     "hide": false,
     "sourceUrl": "https://www.vadilalicecreams.com/product-listing"

@@ -58,7 +58,7 @@ async function main() {
     `\nMerge: +${stats.added} new, ~${stats.updated} updated, =${stats.unchanged} unchanged, ₹${stats.priceUpdated} scrape price updates`,
   );
   console.log(
-    `Prices set: ${withPrice}/${merged.length} (enriched +${priced.stats.updated}, missing ${priced.stats.missing})`,
+    `Prices set: ${withPrice}/${merged.length} (listed ${priced.stats.listed}, category-retail ${priced.stats.fallback})`,
   );
   console.log(`Wrote ${merged.length} products → ${jsonPath}`);
 }
